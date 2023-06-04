@@ -1,0 +1,223 @@
+﻿<Window x:Class="WaterBalance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WaterBalance"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="660" Width="460"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" Icon="/icon.png">
+    <Border CornerRadius="23" Margin="51,10,51,6">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0172C3" Offset="0.004"/>
+                <GradientStop Color="#FF01395F" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="15" Opacity=".4"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid x:Name="mainMenuGrid">
+                <Grid.Effect>
+                    <BlurEffect Radius="0"/>
+                </Grid.Effect>
+                <Button Content="X"
+                    FontSize="30"
+                    HorizontalAlignment="Right" 
+                    Margin="0,10,16,0" VerticalAlignment="Top"
+                    Foreground="#FFFF2B2B"
+                    Height="42" Width="42"
+                    FontFamily="Arial Black"
+                    RenderTransformOrigin="0.542,0.5"
+                    BorderThickness="0" Background="{x:Null}" Opacity="0.595" Click="CloseButton" Style="{StaticResource default}">
+
+
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" Direction="0" Color="Black" Opacity="0.78" />
+                    </Button.Effect>
+                </Button>
+                <Button Content="—"
+                FontSize="30"
+                HorizontalAlignment="Right" 
+                Margin="0,6,65,0" VerticalAlignment="Top"
+                Foreground="White"
+                Height="50" Width="43"
+                FontFamily="ZWAdobeF"
+                RenderTransformOrigin="0.5,0.51"
+                BorderThickness="0" Background="{x:Null}" Opacity="0.595" Click="MinimizeButton" SnapsToDevicePixels="True" FontStyle="Oblique" FontWeight="Bold" Style="{StaticResource default}">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="5" />
+                    </Button.Effect>
+                </Button>
+                <Label Content="Water Balance" HorizontalAlignment="Left" Margin="60,6,0,0" VerticalAlignment="Top" Height="37" Width="152" FontSize="22" FontFamily="Segoe UI Semibold" Background="{x:Null}">
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF89C2D9" Offset="0.275"/>
+                            <GradientStop Color="#FFB0E9FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
+                    </Label.Effect>
+                </Label>
+                <Label Content="Total Liters Today:" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Height="66" Width="284" FontSize="33" FontFamily="Segoe UI Semibold" Foreground="#FF49C8FF" Background="{x:Null}">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" Opacity=".7" RenderingBias="Performance" />
+                    </Label.Effect>
+                </Label>
+                <Label Content="0,0L" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Height="49" Width="72" FontSize="32" FontFamily="Segoe UI Semibold" Foreground="#FFB7C9FF">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
+                    </Label.Effect>
+                </Label>
+                <Label Content="stay hydrated!" HorizontalAlignment="Left" Margin="60,30,0,0" VerticalAlignment="Top" Height="38" Width="152" FontSize="16" FontFamily="Segoe UI Semibold" Foreground="#FF61A5C2" FontStretch="Normal">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
+                    </Label.Effect>
+                </Label>
+                <Button x:Name="addButton" Content="ADD" Style="{StaticResource default}" Opacity="0.7" HorizontalAlignment="Center" Margin="0,440,0,0" VerticalAlignment="Top" Height="42" Width="117"  FontSize="30" FontFamily="Bahnschrift SemiBold" RenderTransformOrigin="0.5,0.5" Click="AddButton" BorderThickness="2,1,2,1">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0" Opacity=".7"/>
+                    </Button.Effect>
+                    <Button.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF93D2EC" Offset="0.008"/>
+                            <GradientStop Color="#FF3288AB" Offset="1"/>
+                            <GradientStop Color="#FFB8EAFF" Offset="0.024"/>
+                        </LinearGradientBrush>
+                    </Button.Foreground>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+                <Image HorizontalAlignment="Left" Height="46" Margin="14,13,0,0" VerticalAlignment="Top" Width="44" Source="/icon.png"/>
+            </Grid>
+            <Grid x:Name="addGrid" Visibility="Hidden" Margin="0,201,0,157" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="227*"/>
+                    <ColumnDefinition Width="224*"/>
+                </Grid.ColumnDefinitions>
+                <Border  Margin="10,10,10,10" CornerRadius="40" Grid.ColumnSpan="2" >
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="22" ShadowDepth="0" Opacity=".4"/>
+                    </Border.Effect>
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1B5594"/>
+                            <GradientStop Color="#FF0060A5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Button Content="CANCEL" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="150,290,150,-22" RenderTransformOrigin="0.5,0.5" Click="AddButton" Grid.ColumnSpan="2">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5798FF"/>
+                            <GradientStop Color="#FF2075FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+            </Grid>
+            <Grid x:Name="ContolButtons" Margin="0,578,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="99*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="0,1,0,0" CornerRadius="23" Opacity=".7" Grid.ColumnSpan="2" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0DABFF" Offset="0"/>
+                            <GradientStop Color="#FF294763" Offset="0.936"/>
+                            <GradientStop Color="#FF1B85C8" Offset="0.434"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Button x:Name="waterControlButton" Style="{StaticResource controlDefault}" Opacity=".85" Tag="0" HorizontalAlignment="Left" Margin="20,22,0,0" VerticalAlignment="Top" Height="32" BorderBrush="{x:Null}" Width="34" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Click="ControlButtonClick">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0" Opacity=".5" BlurRadius="4"/>
+                    </Button.Effect>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/waterIcon.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="calendarControlButton" Style="{StaticResource controlDefault}" Opacity=".85" Tag="1" HorizontalAlignment="Left" Margin="111,22,0,0" VerticalAlignment="Top" Height="32" BorderBrush="{x:Null}" Width="34" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Click="ControlButtonClick">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0" Opacity=".5" BlurRadius="4"/>
+                    </Button.Effect>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/calendar.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="achievementControlButton" Style="{StaticResource controlDefault}" Opacity=".85" Tag="2" HorizontalAlignment="Left" Margin="47,21,0,0" VerticalAlignment="Top" Height="34" BorderBrush="{x:Null}" Width="38" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Grid.Column="1" Click="ControlButtonClick">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0" Opacity=".5" BlurRadius="4"/>
+                    </Button.Effect>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/achievement.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="settingsControlButtons" Style="{StaticResource controlDefault}" Opacity=".85" Tag="3" HorizontalAlignment="Left" Margin="140,25,0,0" VerticalAlignment="Top" Height="30" BorderBrush="{x:Null}" Width="33" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Grid.Column="1" Click="ControlButtonClick">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0" Opacity=".5" BlurRadius="4"/>
+                    </Button.Effect>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/options.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Grid>
+
+    </Border>
+
+</Window>
+    

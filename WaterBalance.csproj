@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <StartupObject>WaterBalance.App</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="achievement.png" />
+    <None Remove="calendar.png" />
+    <None Remove="icon.png" />
+    <None Remove="options.png" />
+    <None Remove="waterIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="achievement.png" />
+    <Resource Include="calendar.png" />
+    <Resource Include="icon.png" />
+    <Resource Include="options.png" />
+    <Resource Include="waterIcon.png" />
+  </ItemGroup>
+
+</Project>
