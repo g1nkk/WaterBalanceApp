@@ -23,60 +23,39 @@
         </Border.Effect>
 
         <Grid>
-            <Grid x:Name="mainMenuGrid">
+            <Grid x:Name="optionsGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="383*"/>
+                    <RowDefinition Height="262*"/>
+                </Grid.RowDefinitions>
+                
+                <Button Content=" get fox picture" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="135,363,135,251" RenderTransformOrigin="0.5,0.5" Click="AddButton" Grid.RowSpan="2">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5798FF"/>
+                            <GradientStop Color="#FF2075FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+            </Grid>
+            <Grid x:Name="mainMenuGrid" Visibility="Hidden">
                 <Grid.Effect>
                     <BlurEffect Radius="0"/>
                 </Grid.Effect>
-                <Button Content="X"
-                    FontSize="30"
-                    HorizontalAlignment="Right" 
-                    Margin="0,10,16,0" VerticalAlignment="Top"
-                    Foreground="#FFFF2B2B"
-                    Height="42" Width="42"
-                    FontFamily="Arial Black"
-                    RenderTransformOrigin="0.542,0.5"
-                    BorderThickness="0" Background="{x:Null}" Opacity="0.595" Click="CloseButton" Style="{StaticResource default}">
-
-
-                    <Button.Effect>
-                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" Direction="0" Color="Black" Opacity="0.78" />
-                    </Button.Effect>
-                </Button>
-                <Button Content="—"
-                FontSize="30"
-                HorizontalAlignment="Right" 
-                Margin="0,6,65,0" VerticalAlignment="Top"
-                Foreground="White"
-                Height="50" Width="43"
-                FontFamily="ZWAdobeF"
-                RenderTransformOrigin="0.5,0.51"
-                BorderThickness="0" Background="{x:Null}" Opacity="0.595" Click="MinimizeButton" SnapsToDevicePixels="True" FontStyle="Oblique" FontWeight="Bold" Style="{StaticResource default}">
-                    <Button.Effect>
-                        <DropShadowEffect ShadowDepth="1" BlurRadius="5" />
-                    </Button.Effect>
-                </Button>
-                <Label Content="Water Balance" HorizontalAlignment="Left" Margin="60,6,0,0" VerticalAlignment="Top" Height="37" Width="152" FontSize="22" FontFamily="Segoe UI Semibold" Background="{x:Null}">
-                    <Label.Foreground>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF89C2D9" Offset="0.275"/>
-                            <GradientStop Color="#FFB0E9FF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Label.Foreground>
-                    <Label.Effect>
-                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
-                    </Label.Effect>
-                </Label>
                 <Label Content="Total Liters Today:" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Height="66" Width="284" FontSize="33" FontFamily="Segoe UI Semibold" Foreground="#FF49C8FF" Background="{x:Null}">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="1" BlurRadius="7" Opacity=".7" RenderingBias="Performance" />
                     </Label.Effect>
                 </Label>
                 <Label Content="0,0L" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Height="49" Width="72" FontSize="32" FontFamily="Segoe UI Semibold" Foreground="#FFB7C9FF">
-                    <Label.Effect>
-                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
-                    </Label.Effect>
-                </Label>
-                <Label Content="stay hydrated!" HorizontalAlignment="Left" Margin="60,30,0,0" VerticalAlignment="Top" Height="38" Width="152" FontSize="16" FontFamily="Segoe UI Semibold" Foreground="#FF61A5C2" FontStretch="Normal">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
                     </Label.Effect>
@@ -101,7 +80,6 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <Image HorizontalAlignment="Left" Height="46" Margin="14,13,0,0" VerticalAlignment="Top" Width="44" Source="/icon.png"/>
             </Grid>
             <Grid x:Name="addGrid" Visibility="Hidden" Margin="0,201,0,157" >
                 <Grid.ColumnDefinitions>
@@ -214,6 +192,51 @@
                         <ImageBrush Stretch="Uniform" ImageSource="/options.png"/>
                     </Button.Background>
                 </Button>
+                <Button Content="X"
+                    FontSize="30"
+                    HorizontalAlignment="Right" 
+                    Margin="0,-567,15,0" VerticalAlignment="Top"
+                    Foreground="#FFFF2B2B"
+                    Height="42" Width="42"
+                    FontFamily="Arial Black"
+                    RenderTransformOrigin="0.542,0.5"
+                    BorderThickness="0" Background="{x:Null}" Opacity="0.595" Click="CloseButton" Style="{StaticResource default}" Grid.Column="1">
+
+
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" Direction="0" Color="Black" Opacity="0.78" />
+                    </Button.Effect>
+                </Button>
+                <Button Content="—"
+                    FontSize="30"
+                    HorizontalAlignment="Right" 
+                    Margin="0,-571,64,0" VerticalAlignment="Top"
+                    Foreground="White"
+                    Height="50" Width="43"
+                    FontFamily="ZWAdobeF"
+                    RenderTransformOrigin="0.5,0.51"
+                    BorderThickness="0" Background="{x:Null}" Opacity="0.595" Click="MinimizeButton" SnapsToDevicePixels="True" FontStyle="Oblique" FontWeight="Bold" Style="{StaticResource default}" Grid.Column="1">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="5" />
+                    </Button.Effect>
+                </Button>
+                <Label Content="Water Balance" HorizontalAlignment="Left" Margin="61,-571,0,0" VerticalAlignment="Top" Height="37" Width="152" FontSize="22" FontFamily="Segoe UI Semibold" Background="{x:Null}" Grid.ColumnSpan="2">
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF89C2D9" Offset="0.275"/>
+                            <GradientStop Color="#FFB0E9FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
+                    </Label.Effect>
+                </Label>
+                <Label Content="stay hydrated!" HorizontalAlignment="Left" Margin="61,-547,0,0" VerticalAlignment="Top" Height="38" Width="152" FontSize="16" FontFamily="Segoe UI Semibold" Foreground="#FF61A5C2" FontStretch="Normal" Grid.ColumnSpan="2">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
+                    </Label.Effect>
+                </Label>
+                <Image HorizontalAlignment="Left" Height="46" Margin="15,-564,0,0" VerticalAlignment="Top" Width="44" Source="/icon.png"/>
             </Grid>
         </Grid>
 
