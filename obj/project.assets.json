@@ -1,11 +1,41 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "ToggleSwitch/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/ToggleSwitch.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/ToggleSwitch.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ToggleSwitch/1.2.0": {
+      "sha512": "Rhv4kXlH8Zo8Hb5ZEBECwONAF9HKmYyz1AR5RFyOrU5trbyyu1FCjDQ9E1Njo8ocsfYdjzbsdxgYYEQ3Oh9v9w==",
+      "type": "package",
+      "path": "toggleswitch/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net46/ToggleSwitch.dll",
+        "lib/netcoreapp3.1/ToggleSwitch.dll",
+        "toggleswitch.1.2.0.nupkg.sha512",
+        "toggleswitch.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "ToggleSwitch >= 1.2.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Kirill\\.nuget\\packages\\": {},
@@ -50,6 +80,12 @@
     "frameworks": {
       "net7.0-windows7.0": {
         "targetAlias": "net7.0-windows",
+        "dependencies": {
+          "ToggleSwitch": {
+            "target": "Package",
+            "version": "[1.2.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

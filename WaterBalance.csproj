@@ -24,4 +24,8 @@
     <Resource Include="waterIcon.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ToggleSwitch" Version="1.2.0" />
+  </ItemGroup>
+
 </Project>
