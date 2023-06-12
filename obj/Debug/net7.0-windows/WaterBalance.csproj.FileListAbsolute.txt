@@ -44,3 +44,5 @@ C:\Users\User\source\repos\homeworks\WaterBalanceApp\obj\Debug\net7.0-windows\re
 C:\Users\User\source\repos\homeworks\WaterBalanceApp\obj\Debug\net7.0-windows\WaterBalance.pdb
 C:\Users\User\source\repos\homeworks\WaterBalanceApp\obj\Debug\net7.0-windows\WaterBalance.genruntimeconfig.cache
 C:\Users\User\source\repos\homeworks\WaterBalanceApp\obj\Debug\net7.0-windows\ref\WaterBalance.dll
+C:\Users\Kirill\source\repos\WaterBalance\bin\Debug\net7.0-windows\ToggleSwitch.dll
+C:\Users\Kirill\source\repos\WaterBalance\obj\Debug\net7.0-windows\WaterBalance.csproj.CopyComplete

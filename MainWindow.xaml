@@ -23,7 +23,439 @@
         </Border.Effect>
 
         <Grid>
-            <Grid x:Name="optionsGrid" Visibility="Visible">
+            <Grid x:Name="calculateGrid" Visibility="Visible">
+
+                <Label Content="Hello!" HorizontalAlignment="Center" VerticalAlignment="Top" Height="52" Width="122" FontFamily="Bahnschrift SemiBold" FontSize="37" Margin="0,23,0,0" RenderTransformOrigin="0.516,0.308">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".6"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA7BDFF"/>
+                            <GradientStop Color="#FF7C9BFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="Before we continue," HorizontalAlignment="Center" VerticalAlignment="Top" Height="56" Width="226" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="0,89,0,0">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="we need to calculate" HorizontalAlignment="Center" VerticalAlignment="Top" Height="56" Width="242" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="0,118,0,0">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="your daily goal :" HorizontalAlignment="Center" VerticalAlignment="Top" Height="55" Width="180" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="0,150,0,0">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Button Content="CONTINUE" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="135,587,139,28" RenderTransformOrigin="0.5,0.5" Click="CalculateButton">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5798FF"/>
+                            <GradientStop Color="#FF2075FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+                <Label Content="gender " HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="98" FontFamily="Bahnschrift SemiBold" FontSize="27" Margin="126,205,0,0">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="7" ShadowDepth="0" Opacity=".6"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF" Offset="0"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="age :" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="60" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="45,391,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="weight :" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="94" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="13,305,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="height :" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="90" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="17,350,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="daily activity" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="166" FontFamily="Bahnschrift SemiBold" FontSize="27" Margin="0,451,0,0" RenderTransformOrigin="0.481,0.667">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <RadioButton x:Name="maleChecked" Content="Male" Tag="0" HorizontalAlignment="Left" Margin="86,259,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5" Background="White" Width="58">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".6"/>
+                    </RadioButton.Effect>
+                    <RadioButton.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RadioButton.Foreground>
+                    <RadioButton.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </RadioButton.RenderTransform>
+                </RadioButton>
+                <RadioButton x:Name="femaleChecked" Content="Female" Tag="1" HorizontalAlignment="Left" Margin="194,259,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.484,0.518" Width="74">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".6"/>
+                    </RadioButton.Effect>
+                    <RadioButton.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF" Offset="0.004"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RadioButton.Foreground>
+                    <RadioButton.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="-0.292" Y="0.082"/>
+                        </TransformGroup>
+                    </RadioButton.RenderTransform>
+                </RadioButton>
+                <RadioButton x:Name="sedentary" Content="Sedentary" GroupName="activity" HorizontalAlignment="Left" Margin="29,500,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".6"/>
+                    </RadioButton.Effect>
+                    <RadioButton.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RadioButton.Foreground>
+                    <RadioButton.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </RadioButton.RenderTransform>
+                </RadioButton>
+                <RadioButton x:Name="lightly" Content="Lightly active" GroupName="activity" HorizontalAlignment="Left" Margin="29,528,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".6"/>
+                    </RadioButton.Effect>
+                    <RadioButton.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RadioButton.Foreground>
+                    <RadioButton.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </RadioButton.RenderTransform>
+                </RadioButton>
+                <RadioButton x:Name="moderately" Content="Moderately active
+                             " GroupName="activity" HorizontalAlignment="Left" Margin="186,500,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5" Width="152">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".6"/>
+                    </RadioButton.Effect>
+                    <RadioButton.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RadioButton.Foreground>
+                    <RadioButton.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </RadioButton.RenderTransform>
+                </RadioButton>
+                <RadioButton x:Name="highly" Content="Highly active" GroupName="activity" HorizontalAlignment="Left" Margin="184,528,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".6"/>
+                    </RadioButton.Effect>
+                    <RadioButton.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </RadioButton.Foreground>
+                    <RadioButton.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </RadioButton.RenderTransform>
+                </RadioButton>
+                <Label x:Name="calculateKg" Content="70" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="56" FontFamily="Bahnschrift SemiBold" FontSize="29" Margin="130,306,0,0" RenderTransformOrigin="0.481,0.667">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="kg" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="94" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="184,308,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label x:Name="calculateHeight" Content="160" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="54" FontFamily="Bahnschrift SemiBold" FontSize="29" Margin="132,351,0,0" RenderTransformOrigin="0.481,0.667">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="cm" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="94" FontFamily="Bahnschrift SemiBold" FontSize="24" Margin="184,354,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF83BFFF"/>
+                            <GradientStop Color="#FF6186E0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label x:Name="calculateAge" Content="17" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="49" FontFamily="Bahnschrift SemiBold" FontSize="29" Margin="131,394,0,0" RenderTransformOrigin="0.481,0.667">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="9" ShadowDepth="0" Opacity=".4"/>
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0084FF"/>
+                            <GradientStop Color="#FF78CAFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="106,306,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="17" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="calculateWeightUp_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.2" Y="-0.1"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="105,323,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="17" Width="19" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="calculateWeightDown_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.021"/>
+                            <RotateTransform Angle="-179.881"/>
+                            <TranslateTransform X="0.2" Y="-0.1"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="106,351,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="17" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="calculateHeightUp_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.2" Y="-0.1"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="105,368,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="17" Width="19" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="calculateHeightDown_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.021"/>
+                            <RotateTransform Angle="-179.881"/>
+                            <TranslateTransform X="0.2" Y="-0.1"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="106,394,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="17" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="calculateAgeUp_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.2" Y="-0.1"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="105,411,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="17" Width="19" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="calculateAgeDown_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.021"/>
+                            <RotateTransform Angle="-179.881"/>
+                            <TranslateTransform X="0.2" Y="-0.1"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Label x:Name="lit" Content="Label" HorizontalAlignment="Left" Margin="29,596,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+            <Grid x:Name="optionsGrid" Visibility="Hidden">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="383*"/>
                     <RowDefinition Height="262*"/>
@@ -114,6 +546,22 @@
                         </LinearGradientBrush>
                     </Label.Foreground>
                 </Label>
+                <Button Content="recalculate " Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,191,131,167" RenderTransformOrigin="0.5,0.5" Click="developerPageButton">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5798FF"/>
+                            <GradientStop Color="#FF2075FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
             </Grid>
             <Grid x:Name="mainMenuGrid" Visibility="Hidden">
                 <Grid.Effect>
@@ -124,6 +572,9 @@
                         <DropShadowEffect ShadowDepth="1" BlurRadius="7" Opacity=".7" RenderingBias="Performance" />
                     </Label.Effect>
                 </Label>
+                <StackPanel>
+
+                </StackPanel>
                 <Label Content="0,0L" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Height="49" Width="72" FontSize="32" FontFamily="Segoe UI Semibold" Foreground="#FFB7C9FF">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />
@@ -183,7 +634,7 @@
                     </Button.RenderTransform>
                 </Button>
             </Grid>
-            <Grid x:Name="ContolButtons" Margin="0,578,0,0">
+            <Grid x:Name="ContolButtons" Margin="0,578,0,0" Visibility="Hidden">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80*"/>
                     <ColumnDefinition Width="99*"/>

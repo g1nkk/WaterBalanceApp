@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Numerics;
 using System.Security.Policy;
 using System.Text;
 using System.Threading;
@@ -18,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -94,7 +96,6 @@ namespace WaterBalance
                 EasingFunction = new QuadraticEase()
             };
 
-            Thread.Sleep(100);
             panels[panelIndex].Visibility = Visibility.Visible;
             panels[panelIndex].BeginAnimation(OpacityProperty, showAnimation);
         }
@@ -226,6 +227,101 @@ namespace WaterBalance
 
             LitersGoal = (float)litersSlider.Value;
             GoalLitersText.Content = LitersGoal.ToString("F2") + " L";
+        }
+
+        private void calculateWeightUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(calculateKg.Content) < 200)
+            {
+                calculateKg.Content = Convert.ToInt32(calculateKg.Content) + 1;
+            }
+        }
+        private void calculateWeightDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(calculateKg.Content) > 10)
+            {
+                calculateKg.Content = Convert.ToInt32(calculateKg.Content) - 1;
+            }
+        }
+        private void calculateHeightUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(calculateHeight.Content) < 300)
+            {
+                calculateHeight.Content = Convert.ToInt32(calculateHeight.Content) + 1;
+            }
+        }
+        private void calculateHeightDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(calculateHeight.Content) > 10)
+            {
+                calculateHeight.Content = Convert.ToInt32(calculateHeight.Content) - 1;
+            }
+        }
+        private void calculateAgeUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(calculateAge.Content) < 130)
+            {
+                calculateAge.Content = Convert.ToInt32(calculateAge.Content) + 1;
+            }
+        }
+        private void calculateAgeDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(calculateAge.Content) > 3)
+            {
+                calculateAge.Content = Convert.ToInt32(calculateAge.Content) - 1;
+            }
+        }
+
+        float calculateWaterGoal()
+        {
+            /*
+            goal = BMR * activity factor
+
+            BMR for men = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
+            BMR for women = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)
+            */
+
+            double BMR;
+            float factor = getActivityFactor();
+            int weight = Convert.ToInt32(calculateKg.Content);
+            int height = Convert.ToInt32(calculateHeight.Content);
+            int age = Convert.ToInt32(calculateAge.Content);
+
+            if (maleChecked.IsChecked == true) // for male
+            {
+                BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            }
+            else // for female
+            {
+                BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            }
+
+            return (float)BMR * factor;
+        }
+        float getActivityFactor()
+        {
+            if(sedentary.IsChecked == true)
+            {
+                return 1.2f;
+            }
+            else if(lightly.IsChecked == true)
+            {
+                return 1.375f;
+            }
+            else if(moderately.IsChecked == true)
+            {
+                return 1.55f;
+            }
+            else if(highly.IsChecked == true)
+            {
+                return 1.9f;
+            }
+            else return 1;
+        }
+
+        private void CalculateButton(object sender, RoutedEventArgs e)
+        {
+            lit.Content = calculateWaterGoal();
         }
     }
 }
