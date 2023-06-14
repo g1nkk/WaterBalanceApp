@@ -25,41 +25,41 @@ using System.Windows.Shapes;
 
 namespace WaterBalance
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-
+        private AppData appData;
         private Grid[] panels = new Grid[7];
         private Button[] ControlButtons = new Button[4];
         private int currentPanelSelected = 0;
 
         private bool isGridVisible = false;
 
-        private float LitersGoal = 3;
-
 
         public MainWindow()
         {
             InitializeComponent();
-            setupStandartComponents();
             loadAndCheckData();
+            setupStandartComponents();
         }
 
         void loadAndCheckData()
         {
+            if (File.Exists("appData.json")) // check first startup
+            {
+                appData = new AppData();
 
-
-
-
-
+                showPanel(0); // main menu
+            }
+            else
+            {
+                showPanel(5); // calculate profile
+            }
         }
         
         void setupStandartComponents()
         {
-            GoalLitersText.Content = LitersGoal.ToString("F2") + " L";
-            litersSlider.Value = LitersGoal;
+            GoalLitersText.Content = appData.DailyGoal.ToString("F2") + " L";
+            litersSlider.Value = appData.DailyGoal;
 
             ControlButtons[0] = waterControlButton;
             ControlButtons[1] = calendarControlButton;
@@ -240,8 +240,8 @@ namespace WaterBalance
         {
             if(!IsInitialized) { return; }
 
-            LitersGoal = (float)litersSlider.Value;
-            GoalLitersText.Content = LitersGoal.ToString() + " L";
+            appData.DailyGoal = (float)litersSlider.Value;
+            GoalLitersText.Content = appData.DailyGoal.ToString() + " L";
         }
 
         private void calculateWeightUp_Click(object sender, RoutedEventArgs e)

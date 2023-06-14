@@ -2,13 +2,19 @@
 {
     internal class AppData
     {
-        public int DailyGoal { get; set; }
+        public float DailyGoal { get; set; }
         public int CurrentStreak {  get; set; }
+        public int MaxStreak {  get; set; }
 
-
-        public AppData(int goal) 
+        public AppData() 
+        {
+            LoadAllData();
+        }
+        public AppData(int goal) // first startup setting
         { 
             DailyGoal = goal;
+            CurrentStreak = 0;
+            MaxStreak = 0;
         }
 
 
