@@ -31,9 +31,9 @@ namespace WaterBalance
     public partial class MainWindow : Window
     {
 
-        private Grid[] panels = new Grid[5];
+        private Grid[] panels = new Grid[7];
         private Button[] ControlButtons = new Button[4];
-        private int currentPanelSelected = 4;
+        private int currentPanelSelected = 0;
 
         private bool isGridVisible = false;
 
@@ -43,7 +43,21 @@ namespace WaterBalance
         public MainWindow()
         {
             InitializeComponent();
+            setupStandartComponents();
+            loadAndCheckData();
+        }
 
+        void loadAndCheckData()
+        {
+
+
+
+
+
+        }
+        
+        void setupStandartComponents()
+        {
             GoalLitersText.Content = LitersGoal.ToString("F2") + " L";
             litersSlider.Value = LitersGoal;
 
@@ -57,7 +71,8 @@ namespace WaterBalance
             // calendar panels[2] = ;
             // achivements panels[3] = ;
             panels[4] = optionsGrid;
-
+            panels[5] = calculateGrid;
+            panels[6] = ContolButtons;
         }
 
         public void ControlButtonClick(object sender, RoutedEventArgs e)
@@ -226,7 +241,7 @@ namespace WaterBalance
             if(!IsInitialized) { return; }
 
             LitersGoal = (float)litersSlider.Value;
-            GoalLitersText.Content = LitersGoal.ToString("F2") + " L";
+            GoalLitersText.Content = LitersGoal.ToString() + " L";
         }
 
         private void calculateWeightUp_Click(object sender, RoutedEventArgs e)
@@ -296,7 +311,9 @@ namespace WaterBalance
                 BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
             }
 
-            return (float)BMR * factor;
+            int goalMl = (int)(BMR * factor);
+
+            return (float)Math.Round((double)goalMl / 1000, 1); // convert ml to l and round
         }
         float getActivityFactor()
         {
@@ -321,7 +338,55 @@ namespace WaterBalance
 
         private void CalculateButton(object sender, RoutedEventArgs e)
         {
-            lit.Content = calculateWaterGoal();
+            if(allFieldsFilled())
+            {
+                float goal = calculateWaterGoal(); // goal in liters
+
+                LitersGoal = goal;
+                litersSlider.Value = goal;
+
+                hidePanel(5); // calculate panel
+                showPanel(0); // main menu
+                showPanel(6); // up and down buttons
+
+                currentPanelSelected = 0;
+            }
+            else
+            {
+                var gridAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(1),
+                    EasingFunction = new QuadraticEase()
+                };
+                notFilledGrid.BeginAnimation(OpacityProperty, gridAnimation);
+            }
+        }
+
+        bool allFieldsFilled()
+        {
+            bool genderSelected = maleChecked.IsChecked == true || femaleChecked.IsChecked == true;
+            bool activityLevelSelected = sedentary.IsChecked == true || lightly.IsChecked == true
+                || moderately.IsChecked == true || highly.IsChecked == true;
+
+            return genderSelected && activityLevelSelected;
+        }
+
+        private void recalculateButtonClick(object sender, RoutedEventArgs e)
+        {
+            showPanel(5); // calculate panel
+            hidePanel(4); // options menu
+            hidePanel(6); // up and down buttons
+        }
+
+        private void clearAllDataClick(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("You sure you want to clear all data?",
+            "Clear All Data", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+
+            }
         }
     }
 }

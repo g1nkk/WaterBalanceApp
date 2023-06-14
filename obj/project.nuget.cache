@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mSDCxbQnIfNZfbTw67ukKvn2emEi9pChgsmflfX2FOdHs1i7lq70T1NR3438nOeiZVBa7npSWF6TrsiTnMjQTg==",
+  "dgSpecHash": "5T9T7kcbzuKkcgG7/IStCBG30UjgKRaWt13ty0kh+hlsnS5Hj/H+relPG59/E0WriHnLj/DaxZ5/AxyrMREZgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj",
+  "projectFilePath": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kirill\\.nuget\\packages\\toggleswitch\\1.2.0\\toggleswitch.1.2.0.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\toggleswitch\\1.2.0\\toggleswitch.1.2.0.nupkg.sha512"
   ],
   "logs": []
 }

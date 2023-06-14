@@ -23,7 +23,7 @@
         </Border.Effect>
 
         <Grid>
-            <Grid x:Name="calculateGrid" Visibility="Visible">
+            <Grid x:Name="calculateGrid" Visibility="Hidden">
 
                 <Label Content="Hello!" HorizontalAlignment="Center" VerticalAlignment="Top" Height="52" Width="122" FontFamily="Bahnschrift SemiBold" FontSize="37" Margin="0,23,0,0" RenderTransformOrigin="0.516,0.308">
                     <Label.Effect>
@@ -452,10 +452,10 @@
                         <ImageBrush ImageSource="/arrow.png"/>
                     </Button.Background>
                 </Button>
-                <Label x:Name="lit" Content="Label" HorizontalAlignment="Left" Margin="29,596,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="notFilledGrid" Content="Please select all options." HorizontalAlignment="Left" Margin="96,547,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold Condensed" Foreground="#FFFF7777" Opacity="0" Height="34" Width="162" FontSize="18"/>
 
             </Grid>
-            <Grid x:Name="optionsGrid" Visibility="Hidden">
+            <Grid x:Name="optionsGrid" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="383*"/>
                     <RowDefinition Height="262*"/>
@@ -498,7 +498,7 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <Button Content="clear all data" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="118,325,118,34" RenderTransformOrigin="0.5,0.5" Click="developerPageButton">
+                <Button x:Name="clearAllDataButton" Content="clear all data" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="118,325,118,34" RenderTransformOrigin="0.5,0.5" Click="clearAllDataClick">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF6177A0"/>
@@ -546,7 +546,7 @@
                         </LinearGradientBrush>
                     </Label.Foreground>
                 </Label>
-                <Button Content="recalculate " Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,191,131,167" RenderTransformOrigin="0.5,0.5" Click="developerPageButton">
+                <Button x:Name="recalculateButton" Content="recalculate " Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,191,131,167" RenderTransformOrigin="0.5,0.5" Click="recalculateButtonClick">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF5798FF"/>
@@ -572,9 +572,6 @@
                         <DropShadowEffect ShadowDepth="1" BlurRadius="7" Opacity=".7" RenderingBias="Performance" />
                     </Label.Effect>
                 </Label>
-                <StackPanel>
-
-                </StackPanel>
                 <Label Content="0,0L" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Height="49" Width="72" FontSize="32" FontFamily="Segoe UI Semibold" Foreground="#FFB7C9FF">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="1" BlurRadius="7" RenderingBias="Performance" />

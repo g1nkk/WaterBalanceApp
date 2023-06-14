@@ -18,16 +18,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="achievement.png" />
-    <Resource Include="arrow.png" />
-    <Resource Include="calendar.png" />
-    <Resource Include="icon.png" />
-    <Resource Include="options.png" />
-    <Resource Include="waterIcon.png" />
+    <Resource Include="icons\achievement.png" />
+    <Resource Include="icons\arrow.png" />
+    <Resource Include="icons\calendar.png" />
+    <Resource Include="icons\icon.png" />
+    <Resource Include="icons\options.png" />
+    <Resource Include="icons\waterIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ToggleSwitch" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="icons\achievements\" />
   </ItemGroup>
 
 </Project>

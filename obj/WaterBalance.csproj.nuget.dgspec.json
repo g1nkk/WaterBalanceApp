@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj": {}
+    "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj": {
+    "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj",
         "projectName": "WaterBalance",
-        "projectPath": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj",
-        "packagesPath": "C:\\Users\\Kirill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kirill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,6 +44,10 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "ToggleSwitch": {
               "target": "Package",
               "version": "[1.2.0, )"
@@ -68,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
