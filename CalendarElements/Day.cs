@@ -1,10 +1,8 @@
-﻿namespace WaterBalance.CalendarElements
+﻿namespace WaterBalance
 {
     internal class Day
     {
-        bool GoalCompleted = false;
-        float WaterDrank = 0;
-
-
+        public bool GoalCompleted = false;
+        public float WaterDrank = 0;
     }
 }

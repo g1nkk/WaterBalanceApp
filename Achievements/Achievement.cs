@@ -1,6 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Collections.Generic;
+using System.Windows.Controls;
 
-namespace WaterBalance.Achievements
+namespace WaterBalance
 {
     public interface Achievement
     {
@@ -8,5 +9,21 @@ namespace WaterBalance.Achievements
         string Name { get; }
         string Description { get; }
         bool IsCompleted { get; set; }
+    }
+
+    class AchievementManager
+    {
+        readonly AchievementsList AchievementsList = new();
+        public List<int> CompletedAchievementIndices { get; set; }
+
+        public AchievementManager(List<int> completedAchivements) 
+        {
+            CompletedAchievementIndices = completedAchivements;
+        }
+
+        public AchievementManager()
+        {
+            CompletedAchievementIndices = new List<int>();
+        }
     }
 }

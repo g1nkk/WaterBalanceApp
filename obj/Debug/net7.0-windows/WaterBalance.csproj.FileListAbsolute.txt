@@ -46,3 +46,4 @@ C:\Users\User\source\repos\homeworks\WaterBalanceApp\obj\Debug\net7.0-windows\Wa
 C:\Users\User\source\repos\homeworks\WaterBalanceApp\obj\Debug\net7.0-windows\ref\WaterBalance.dll
 C:\Users\Kirill\source\repos\WaterBalance\bin\Debug\net7.0-windows\ToggleSwitch.dll
 C:\Users\Kirill\source\repos\WaterBalance\obj\Debug\net7.0-windows\WaterBalance.csproj.CopyComplete
+C:\Users\Kirill\source\repos\WaterBalance\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
