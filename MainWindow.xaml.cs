@@ -9,17 +9,17 @@ namespace WaterBalance
 {
     public partial class MainWindow : Window
     {
-        protected int currentPanelSelected = 0;
+        public int currentPanelSelected = 0;
 
         private Grid startupPanel;
 
-        protected ProfileData userProfile;
-        private CalendarData calendarData;
-        private AchievementManager achievementManager;
+        public ProfileData userProfile;
+        public CalendarData calendarData;
+        public AchievementManager achievementManager;
 
-        protected Grid[] panels = new Grid[7];
+        public Grid[] panels = new Grid[7];
 
-        readonly protected DoubleAnimation showAnimation = new DoubleAnimation
+        readonly public static DoubleAnimation showAnimation = new DoubleAnimation
         {
             From = 0,
             To = 1,
@@ -27,7 +27,7 @@ namespace WaterBalance
             EasingFunction = new QuadraticEase()
         };
 
-        readonly protected DoubleAnimation hideAnimation = new DoubleAnimation
+        readonly public static DoubleAnimation hideAnimation = new DoubleAnimation
         {
             From = 1,
             To = 0,
@@ -67,7 +67,7 @@ namespace WaterBalance
             }
         }
 
-        protected void SetupUserDependentComponents()
+        public void SetupUserDependentComponents()
         {
             GoalLitersText.Content = userProfile.DailyGoal.ToString("F2") + " L";
             litersSlider.Value = userProfile.DailyGoal;
@@ -76,10 +76,6 @@ namespace WaterBalance
         }
         void SetupDefaultComponents()
         {
-            DataContext = new PanelManager();
-
-            //panelManager = new PanelManager(this);
-
             panels[0] = mainMenuGrid;
             panels[1] = addGrid;
             // calendar panels[2] = ;
@@ -87,16 +83,18 @@ namespace WaterBalance
             panels[4] = optionsGrid;
             panels[5] = calculateGrid;
             panels[6] = ContolButtons;
+
+            DataContext = new PanelManager(this);
         }
  
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        void Window_Loaded(object sender, RoutedEventArgs e)
         {
             showPanel(startupPanel);
         }

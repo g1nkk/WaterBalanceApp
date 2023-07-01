@@ -25,9 +25,32 @@
         </Border.Effect>
 
         <Grid>
-            <Grid x:Name="calculateGrid" Visibility="Visible" >
+            <Grid x:Name="calendarGrid" Visibility="Visible">
+                <Grid x:Name="calendarDays" Margin="24,87,24,336" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Border Background="#3F5B8FC8" CornerRadius="25" RenderTransformOrigin="0.5,0.5">
+                        <Border.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Border.RenderTransform>
+                    </Border>
+                    <Label x:Name="calendarMonth" Margin="114,-45,114,223" Content="Month" FontSize="24" FontFamily="Calibri" Foreground="#FF1E55AF" FontWeight="Bold"/>
+                </Grid>
+            </Grid>
+            <Grid x:Name="calculateGrid" Visibility="Hidden" >
 
-                <Grid x:Name="CalculatePanel1" Visibility="Visible">
+                <Grid x:Name="CalculatePanel1" Visibility="Hidden">
 
                     <Label Content="Hello!" HorizontalAlignment="Center" VerticalAlignment="Top" Height="52" Width="108" FontFamily="Bahnschrift SemiBold" FontSize="37" Margin="0,126,0,0" RenderTransformOrigin="0.516,0.308" Foreground="#FF1E55AF">
                     </Label>
@@ -76,7 +99,7 @@
                         </RadioButton.RenderTransform>
                     </RadioButton>
                 </Grid>
-                <Grid x:Name="CalculatePanel4" Visibility="Visible">
+                <Grid x:Name="CalculatePanel4" Visibility="Hidden">
 
                     <Label x:Name="calculateKg" Content="60" HorizontalAlignment="Left" VerticalAlignment="Top" Height="38" Width="50" FontFamily="Bahnschrift SemiBold" FontSize="29" Margin="159,176,0,0" RenderTransformOrigin="0.481,0.667" Foreground="#FF5895DA">
                         <Label.RenderTransform>
@@ -128,7 +151,7 @@
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,178,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].WeightUpButton}">
+                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,178,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].WeightUpButton}">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -141,7 +164,7 @@
                             <ImageBrush ImageSource="icons/arrow.png"/>
                         </Button.Background>
                     </Button>
-                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="132,196,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].WeightDownButton}">
+                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="132,196,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].WeightDownButton}">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -154,7 +177,7 @@
                             <ImageBrush ImageSource="icons/arrow.png"/>
                         </Button.Background>
                     </Button>
-                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,282,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].HeightUpButton}">
+                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,282,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].HeightUpButton}">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -167,7 +190,7 @@
                             <ImageBrush ImageSource="/icons/arrow.png"/>
                         </Button.Background>
                     </Button>
-                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,300,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].HeightDownButton}">
+                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,300,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].HeightDownButton}">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -180,7 +203,7 @@
                             <ImageBrush ImageSource="/icons/arrow.png"/>
                         </Button.Background>
                     </Button>
-                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,384,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].AgeUpButton}">
+                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,384,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].AgeUpButton}">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -193,7 +216,7 @@
                             <ImageBrush ImageSource="/icons/arrow.png"/>
                         </Button.Background>
                     </Button>
-                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,402,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].AgeDownButton}">
+                    <Button HorizontalAlignment="Left" Style="{StaticResource default}" Margin="133,402,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="18" Width="18" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].AgeDownButton}">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -268,87 +291,45 @@
                 </Grid>
                 <Grid x:Name="CalculatePanel5" Visibility="Hidden">
 
-                    <Label Content="daily activity" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="166" FontFamily="Bahnschrift SemiBold" FontSize="27" Margin="0,451,0,0" RenderTransformOrigin="0.481,0.667">
+                    <Label Content="Daily Activity" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Width="172" FontFamily="Bahnschrift SemiBold" FontSize="28" Margin="0,141,0,0" RenderTransformOrigin="0.481,0.667" Foreground="#FF1E55AF">
                         <Label.Effect>
-                            <DropShadowEffect BlurRadius="4" ShadowDepth="0" Opacity=".2"/>
+                            <DropShadowEffect BlurRadius="4" ShadowDepth="0" Opacity=".1"/>
                         </Label.Effect>
-                        <Label.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF0084FF"/>
-                                <GradientStop Color="#FF78CAFF" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Label.Foreground>
                     </Label>
-                    <RadioButton x:Name="sedentary" Content="Sedentary" GroupName="activity" HorizontalAlignment="Left" Margin="29,500,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-                        <RadioButton.Effect>
-                            <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".2"/>
-                        </RadioButton.Effect>
-                        <RadioButton.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF83BFFF"/>
-                                <GradientStop Color="#FF6186E0" Offset="1"/>
-                            </LinearGradientBrush>
-                        </RadioButton.Foreground>
+                    <RadioButton x:Name="sedentary" Content="Sedentary" GroupName="activity" HorizontalAlignment="Left" Margin="110,228,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" RenderTransformOrigin="0.5,0.5" Foreground="#FF7CA6D6">
                         <RadioButton.RenderTransform>
                             <TransformGroup>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
                                 <SkewTransform/>
                                 <RotateTransform/>
                                 <TranslateTransform/>
                             </TransformGroup>
                         </RadioButton.RenderTransform>
                     </RadioButton>
-                    <RadioButton x:Name="lightly" Content="Lightly active" GroupName="activity" HorizontalAlignment="Left" Margin="29,528,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-                        <RadioButton.Effect>
-                            <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".2"/>
-                        </RadioButton.Effect>
-                        <RadioButton.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF83BFFF"/>
-                                <GradientStop Color="#FF6186E0" Offset="1"/>
-                            </LinearGradientBrush>
-                        </RadioButton.Foreground>
+                    <RadioButton x:Name="lightly" Content="Lightly active" GroupName="activity" HorizontalAlignment="Left" Margin="113,262,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" RenderTransformOrigin="0.5,0.5" Foreground="#FF7CA6D6">
                         <RadioButton.RenderTransform>
                             <TransformGroup>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
                                 <SkewTransform/>
                                 <RotateTransform/>
                                 <TranslateTransform/>
                             </TransformGroup>
                         </RadioButton.RenderTransform>
                     </RadioButton>
-                    <RadioButton x:Name="moderately" Content="Moderately active                              " GroupName="activity" HorizontalAlignment="Left" Margin="186,500,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5" Width="152">
-                        <RadioButton.Effect>
-                            <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".2"/>
-                        </RadioButton.Effect>
-                        <RadioButton.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF83BFFF"/>
-                                <GradientStop Color="#FF6186E0" Offset="1"/>
-                            </LinearGradientBrush>
-                        </RadioButton.Foreground>
+                    <RadioButton x:Name="moderately" Content="Moderately active                              " GroupName="activity" HorizontalAlignment="Left" Margin="118,296,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" RenderTransformOrigin="0.5,0.5" Width="147" Foreground="#FF7CA6D6">
                         <RadioButton.RenderTransform>
                             <TransformGroup>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
                                 <SkewTransform/>
                                 <RotateTransform/>
                                 <TranslateTransform/>
                             </TransformGroup>
                         </RadioButton.RenderTransform>
                     </RadioButton>
-                    <RadioButton x:Name="highly" Content="Highly active" GroupName="activity" HorizontalAlignment="Left" Margin="184,528,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-                        <RadioButton.Effect>
-                            <DropShadowEffect ShadowDepth="0" BlurRadius="4" Opacity=".2"/>
-                        </RadioButton.Effect>
-                        <RadioButton.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF83BFFF"/>
-                                <GradientStop Color="#FF6186E0" Offset="1"/>
-                            </LinearGradientBrush>
-                        </RadioButton.Foreground>
+                    <RadioButton x:Name="highly" Content="Highly active" GroupName="activity" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" RenderTransformOrigin="0.5,0.5" Margin="112,329,0,0" Foreground="#FF7CA6D6">
                         <RadioButton.RenderTransform>
                             <TransformGroup>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
                                 <SkewTransform/>
                                 <RotateTransform/>
                                 <TranslateTransform/>
@@ -358,7 +339,7 @@
 
                 </Grid>
 
-                <Button Content="CONTINUE" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="137,513,137,102" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalculatePanel].Calculate}">
+                <Button Content="CONTINUE" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="137,513,137,102" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[CalсulatePanel].CalculateButton}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF5798FF"/>
@@ -552,7 +533,7 @@
                     </Button.RenderTransform>
                 </Button>
             </Grid>
-            <Grid x:Name="ContolButtons"  Visibility="Hidden" Margin="0,578,0,0">
+            <Grid x:Name="ContolButtons"  Visibility="Visible" Margin="0,578,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80*"/>
                     <ColumnDefinition Width="99*"/>

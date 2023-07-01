@@ -11,7 +11,7 @@ namespace WaterBalance
         bool IsCompleted { get; set; }
     }
 
-    class AchievementManager
+    public class AchievementManager
     {
         readonly AchievementsList AchievementsList = new();
         public List<int> CompletedAchievementIndices { get; set; }

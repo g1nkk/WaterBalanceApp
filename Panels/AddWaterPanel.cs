@@ -13,14 +13,17 @@ using System.Windows.Media.Effects;
 
 namespace WaterBalance
 {
-    public class AddWaterPanel : MainWindow
+    public class AddWaterPanel
     {
         public ICommand AddWaterButton { get; }
 
+        private readonly MainWindow mainWindow;
+
         private bool IsAddWaterPanelVisible = false;
 
-        public AddWaterPanel() 
+        public AddWaterPanel(MainWindow mainWindow) 
         {
+            this.mainWindow = mainWindow;
             AddWaterButton = new RelayCommand(AddButton);
         }
 
@@ -53,10 +56,10 @@ namespace WaterBalance
                 EasingFunction = new QuadraticEase()
             };
 
-            addGrid.Visibility = Visibility.Visible;
-            addGrid.BeginAnimation(OpacityProperty, gridAnimation);
+            mainWindow.addGrid.Visibility = Visibility.Visible;
+            mainWindow.addGrid.BeginAnimation(Window.OpacityProperty, gridAnimation);
 
-            mainMenuGrid.Effect.BeginAnimation(BlurEffect.RadiusProperty, backgroundAnimation);
+            mainWindow.mainMenuGrid.Effect.BeginAnimation(BlurEffect.RadiusProperty, backgroundAnimation);
 
             IsAddWaterPanelVisible = true;
         }
@@ -80,11 +83,11 @@ namespace WaterBalance
 
             gridAnimation.Completed += (sender, e) =>
             {
-                addGrid.Visibility = Visibility.Hidden;
+                mainWindow.addGrid.Visibility = Visibility.Hidden;
             };
 
-            addGrid.BeginAnimation(OpacityProperty, gridAnimation);
-            mainMenuGrid.Effect.BeginAnimation(BlurEffect.RadiusProperty, backgroundAnimation);
+            mainWindow.addGrid.BeginAnimation(Window.OpacityProperty, gridAnimation);
+            mainWindow.mainMenuGrid.Effect.BeginAnimation(BlurEffect.RadiusProperty, backgroundAnimation);
 
             IsAddWaterPanelVisible = false;
         }

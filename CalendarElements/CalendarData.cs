@@ -7,7 +7,7 @@ using System.Windows.Threading;
 
 namespace WaterBalance
 {
-    internal class CalendarData
+    public class CalendarData                                                                                                                                                                                                                                  
     {
         public Month Month { get; set; }
         private int CurrentDay;

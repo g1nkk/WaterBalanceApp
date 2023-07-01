@@ -14,16 +14,20 @@ using Microsoft.Toolkit.Mvvm.Input;
 
 namespace WaterBalance
 {
-    public class SettingsPanel : MainWindow
+    public class SettingsPanel
     {
+        MainWindow mainWindow;
+
         public ICommand ShowFoxButton { get; }
         public ICommand RecalculateButton { get; }
         public ICommand DeveloperPageButton { get; }
         public ICommand ClearAllDataButton { get; }
         public ICommand LiterSliderValueChanged { get; }
 
-        public SettingsPanel()
+        public SettingsPanel(MainWindow mainWindow)
         {
+            this.mainWindow = mainWindow;
+
             ShowFoxButton = new RelayCommand(ShowFoxPictureClick);
             RecalculateButton = new RelayCommand(RecalculateButtonClick);
             DeveloperPageButton = new RelayCommand(DeveloperPageButtonClick);
@@ -33,9 +37,9 @@ namespace WaterBalance
 
         void RecalculateButtonClick()
         {
-            showPanel(panels[5]); // calculate panel
-            hidePanel(panels[4]); // options menu
-            hidePanel(panels[6]); // up and down buttons
+            mainWindow.showPanel(mainWindow.panels[5]); // calculate panel
+            mainWindow.hidePanel(mainWindow.panels[4]); // options menu
+            mainWindow.hidePanel(mainWindow.panels[6]); // up and down buttons
         }
 
         void ClearAllDataClick()
@@ -64,7 +68,7 @@ namespace WaterBalance
                     bitmap.StreamSource = new MemoryStream(imageData);
                     bitmap.EndInit();
 
-                    foxImage.Source = bitmap;
+                    mainWindow.foxImage.Source = bitmap;
                 }
             }
             catch (Exception ex)
@@ -91,10 +95,9 @@ namespace WaterBalance
 
         void LitersSlider_ValueChanged()
         {
-            if (!IsInitialized) { return; }
 
-            userProfile.DailyGoal = (float)litersSlider.Value;
-            GoalLitersText.Content = userProfile.DailyGoal.ToString() + " L";
+            mainWindow.userProfile.DailyGoal = (float)mainWindow.litersSlider.Value;
+            mainWindow.GoalLitersText.Content = mainWindow.userProfile.DailyGoal.ToString("F2") + " L";
         }
     }
 }

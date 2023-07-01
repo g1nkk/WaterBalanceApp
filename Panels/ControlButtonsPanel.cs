@@ -10,24 +10,28 @@ using Microsoft.Toolkit.Mvvm.Input;
 
 namespace WaterBalance
 {
-    public class ControlButtonsPanel : MainMenuPanel
+    public class ControlButtonsPanel
     {
         private Button[] controlButtons = new Button[4];
 
-        public ICommand Close;
-        public ICommand Minimize;
-        public ICommand ControlButtonSelect;
+        readonly MainWindow mainWindow;
 
-        public ControlButtonsPanel()
+        public ICommand Close { get; }
+        public ICommand Minimize { get; }
+        public ICommand ControlButtonSelect { get; }
+
+        public ControlButtonsPanel(MainWindow mainWindow)
         {
-            controlButtons[0] = waterControlButton;
-            controlButtons[1] = calendarControlButton;
-            controlButtons[2] = achievementControlButton;
-            controlButtons[3] = settingsControlButtons;
+            this.mainWindow = mainWindow;
+
+            controlButtons[0] = mainWindow.waterControlButton;
+            controlButtons[1] = mainWindow.calendarControlButton;
+            controlButtons[2] = mainWindow.achievementControlButton;
+            controlButtons[3] = mainWindow.settingsControlButtons;
 
             Close = new RelayCommand(CloseButton);
             Minimize = new RelayCommand(MinimizeButton);
-            ControlButtonSelect = new RelayCommand<int>(ControlButtonClick);
+            ControlButtonSelect = new RelayCommand<string>(ControlButtonClick);
         }
 
         void CloseButton()
@@ -36,17 +40,17 @@ namespace WaterBalance
         }
         void MinimizeButton()
         {
-            WindowState = WindowState.Minimized;
+            mainWindow.WindowState = WindowState.Minimized;
         }
 
-        void ControlButtonClick(int buttonNum)
+        void ControlButtonClick(string buttonPos)
         {
-            if (currentPanelSelected != Convert.ToInt32(buttonNum))
-            {
-                hidePanel(panels[currentPanelSelected]);
-                currentPanelSelected = Convert.ToInt32(buttonNum); // new panel
-                showPanel(panels[currentPanelSelected]);
-            }
+                if (mainWindow.currentPanelSelected != int.Parse(buttonPos))
+                {
+                    mainWindow.hidePanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+                    mainWindow.currentPanelSelected = int.Parse(buttonPos); // new panel
+                    mainWindow.showPanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+                }
         }
     }
 }

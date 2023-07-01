@@ -14,30 +14,34 @@ using Microsoft.Toolkit.Mvvm.Input;
 
 namespace WaterBalance
 {
-    public class CalculatePanel : MainWindow
+    public class CalculatePanel
     {
+        readonly MainWindow mainWindow;
+
         private Grid[] calculatePanels = new Grid[5];
         private int currentCalculatePanelSelected = 0;
 
-        public ICommand CalculateButton;
+        public ICommand CalculateButton { get; }
 
-        public ICommand WeightUpButton;
-        public ICommand WeightDownButton;
+        public ICommand WeightUpButton { get; }
+        public ICommand WeightDownButton { get; }
 
-        public ICommand HeightUpButton;
-        public ICommand HeightDownButton;
+        public ICommand HeightUpButton { get; }
+        public ICommand HeightDownButton { get; }
 
-        public ICommand AgeUpButton;
-        public ICommand AgeDownButton;
+        public ICommand AgeUpButton { get; }
+        public ICommand AgeDownButton { get; }
 
 
-        public CalculatePanel()
+        public CalculatePanel(MainWindow mainWindow)
         {
-            calculatePanels[0] = CalculatePanel1;
-            calculatePanels[1] = CalculatePanel2;
-            calculatePanels[2] = CalculatePanel3;
-            calculatePanels[3] = CalculatePanel4;
-            calculatePanels[4] = CalculatePanel5;
+            this.mainWindow = mainWindow;
+
+            calculatePanels[0] = mainWindow.CalculatePanel1;
+            calculatePanels[1] = mainWindow.CalculatePanel2;
+            calculatePanels[2] = mainWindow.CalculatePanel3;
+            calculatePanels[3] = mainWindow.CalculatePanel4;
+            calculatePanels[4] = mainWindow.CalculatePanel5;
 
             CalculateButton = new RelayCommand(CheckWaterFields);
 
@@ -54,44 +58,44 @@ namespace WaterBalance
 
         void WeightUp()
         {
-            if (Convert.ToInt32(calculateKg.Content) < 200)
+            if (Convert.ToInt32(mainWindow.calculateKg.Content) < 200)
             {
-                calculateKg.Content = Convert.ToInt32(calculateKg.Content) + 1;
+                mainWindow.calculateKg.Content = Convert.ToInt32(mainWindow.calculateKg.Content) + 1;
             }
         }
         void WeightDown()
         {
-            if (Convert.ToInt32(calculateKg.Content) > 10)
+            if (Convert.ToInt32(mainWindow.calculateKg.Content) > 10)
             {
-                calculateKg.Content = Convert.ToInt32(calculateKg.Content) - 1;
+                mainWindow.calculateKg.Content = Convert.ToInt32(mainWindow.calculateKg.Content) - 1;
             }
         }
         void HeightUp()
         {
-            if (Convert.ToInt32(calculateHeight.Content) < 300)
+            if (Convert.ToInt32(mainWindow.calculateHeight.Content) < 300)
             {
-                calculateHeight.Content = Convert.ToInt32(calculateHeight.Content) + 1;
+                mainWindow.calculateHeight.Content = Convert.ToInt32(mainWindow.calculateHeight.Content) + 1;
             }
         }
         void HeightDown()
         {
-            if (Convert.ToInt32(calculateHeight.Content) > 10)
+            if (Convert.ToInt32(mainWindow.calculateHeight.Content) > 10)
             {
-                calculateHeight.Content = Convert.ToInt32(calculateHeight.Content) - 1;
+                mainWindow.calculateHeight.Content = Convert.ToInt32(mainWindow.calculateHeight.Content) - 1;
             }
         }
         void AgeUp()
         {
-            if (Convert.ToInt32(calculateAge.Content) < 130)
+            if (Convert.ToInt32(mainWindow.calculateAge.Content) < 130)
             {
-                calculateAge.Content = Convert.ToInt32(calculateAge.Content) + 1;
+                mainWindow.calculateAge.Content = Convert.ToInt32(mainWindow.calculateAge.Content) + 1;
             }
         }
         void AgeDown()
         {
-            if (Convert.ToInt32(calculateAge.Content) > 3)
+            if (Convert.ToInt32(mainWindow.calculateAge.Content) > 3)
             {
-                calculateAge.Content = Convert.ToInt32(calculateAge.Content) - 1;
+                mainWindow.calculateAge.Content = Convert.ToInt32(mainWindow.calculateAge.Content) - 1;
             }
         }
 
@@ -106,11 +110,11 @@ namespace WaterBalance
 
             double BMR;
             float factor = GetActivityFactor();
-            int weight = Convert.ToInt32(calculateKg.Content);
-            int height = Convert.ToInt32(calculateHeight.Content);
-            int age = Convert.ToInt32(calculateAge.Content);
+            int weight = Convert.ToInt32(mainWindow.calculateKg.Content);
+            int height = Convert.ToInt32(mainWindow.calculateHeight.Content);
+            int age = Convert.ToInt32(mainWindow.calculateAge.Content);
 
-            if (maleChecked.IsChecked == true) // for male
+            if (mainWindow.maleChecked.IsChecked == true) // for male
             {
                 BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
             }
@@ -125,19 +129,19 @@ namespace WaterBalance
         }
         float GetActivityFactor()
         {
-            if (sedentary.IsChecked == true)
+            if (mainWindow.sedentary.IsChecked == true)
             {
                 return 1.2f;
             }
-            else if (lightly.IsChecked == true)
+            else if (mainWindow.lightly.IsChecked == true)
             {
                 return 1.375f;
             }
-            else if (moderately.IsChecked == true)
+            else if (mainWindow.moderately.IsChecked == true)
             {
                 return 1.55f;
             }
-            else if (highly.IsChecked == true)
+            else if (mainWindow.highly.IsChecked == true)
             {
                 return 1.9f;
             }
@@ -150,31 +154,31 @@ namespace WaterBalance
             {
                 if (AllFieldsFilled(currentCalculatePanelSelected))
                 {
-                    if (InvalidLabel.Opacity > 0)
-                        InvalidLabel.BeginAnimation(OpacityProperty, hideAnimation);
+                    if (mainWindow.InvalidLabel.Opacity > 0)
+                        mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.hideAnimation);
 
                     currentCalculatePanelSelected++;
-                    hidePanel(calculatePanels[currentCalculatePanelSelected - 1]);
-                    showPanel(calculatePanels[currentCalculatePanelSelected]);
+                    mainWindow.hidePanel(calculatePanels[currentCalculatePanelSelected - 1]);
+                    mainWindow.showPanel(calculatePanels[currentCalculatePanelSelected]);
                 }
                 else
                 {
-                    InvalidLabel.BeginAnimation(OpacityProperty, showAnimation);
+                    mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.showAnimation);
                 }
             }
             else
             {
                 float goal = CalculateWaterGoal(); // goal in liters
 
-                userProfile = new ProfileData(goal, NameTextBox.Text);
+                mainWindow.userProfile = new ProfileData(goal, mainWindow.NameTextBox.Text);
 
-                SetupUserDependentComponents();
+                mainWindow.SetupUserDependentComponents();
 
-                hidePanel(panels[5]); // calculate panel
-                showPanel(panels[0]); // main menu
-                showPanel(panels[6]); // up and down buttons
+                mainWindow.hidePanel(mainWindow.panels[5]); // calculate panel
+                mainWindow.showPanel(mainWindow.panels[0]); // main menu
+                mainWindow.showPanel(mainWindow.panels[6]); // up and down buttons
 
-                currentPanelSelected = 0;
+                mainWindow.currentPanelSelected = 0;
 
                 foreach (var panel in calculatePanels)
                 {
@@ -187,18 +191,18 @@ namespace WaterBalance
 
         bool IsActivitySelected()
         {
-            return sedentary.IsChecked == true || lightly.IsChecked == true
-                || moderately.IsChecked == true || highly.IsChecked == true;
+            return mainWindow.sedentary.IsChecked == true || mainWindow.lightly.IsChecked == true
+                || mainWindow.moderately.IsChecked == true || mainWindow.highly.IsChecked == true;
         }
 
         bool IsNameFieldValid()
         {
-            return new Regex(@"^[a-zA-Zа-яА-Я\s\-]{1,12}").IsMatch(NameTextBox.Text);
+            return new Regex(@"^[a-zA-Zа-яА-Я\s\-]{1,12}").IsMatch(mainWindow.NameTextBox.Text);
         }
 
         bool IsGenderSelected()
         {
-            return maleChecked.IsChecked == true || femaleChecked.IsChecked == true;
+            return mainWindow.maleChecked.IsChecked == true || mainWindow.femaleChecked.IsChecked == true;
         }
 
 

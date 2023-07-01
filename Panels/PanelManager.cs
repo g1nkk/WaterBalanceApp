@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WaterBalance.Panels;
 
 namespace WaterBalance
 {
-    internal class PanelManager
+    public class PanelManager
     {
         public Dictionary<string, object> ClassInstances { get; } = new Dictionary<string, object>();
 
-        public PanelManager()
+        public PanelManager(MainWindow mainWindow)
         {
-            AddClassInstance<AddWaterPanel>("AddWaterPanel");
-            AddClassInstance<CalculatePanel>("CaclucalatePanel");
-            AddClassInstance<ControlButtonsPanel>("ControlButtons");
-            AddClassInstance<SettingsPanel>("SettingsPanel");
+            AddClassInstance<AddWaterPanel>("AddWaterPanel", mainWindow);
+            AddClassInstance<CalculatePanel>("CalсulatePanel", mainWindow);
+            AddClassInstance<ControlButtonsPanel>("ControlButtonsPanel", mainWindow);
+            AddClassInstance<SettingsPanel>("SettingsPanel", mainWindow);
+            AddClassInstance<CalendarPanel>("CalendarPanel", mainWindow);
         }
 
-        private void AddClassInstance<T>(string instanceName) where T : class, new()
+        private void AddClassInstance<T>(string instanceName, MainWindow mainWindow) where T : class
         {
-            ClassInstances[instanceName] = new T();
+            T instance = (T)Activator.CreateInstance(typeof(T), mainWindow);
+            ClassInstances[instanceName] = instance;
         }
     }
 }

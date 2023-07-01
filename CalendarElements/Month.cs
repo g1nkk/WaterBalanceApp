@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WaterBalance
 {
-    internal class Month
+    public class Month
     {
         public DateTime CurrentMonth { get; }
         readonly Day[] days;
