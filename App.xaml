@@ -241,5 +241,63 @@
             </Style.Triggers>
 
         </Style>
+
+        
+        
+        <Style x:Key="calendarDayButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Opacity" Value=".7"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="15"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="FontSize" To="14" Duration="0:0:0.03"/>
+                            <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="Opacity" To="0.3" Duration="0:0:0.03"/>
+
+                            <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="FontSize" To="{x:Null}" Duration="0:0:0.17"/>
+                            <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="Opacity" To="{x:Null}" Duration="0:0:0.4"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <Trigger Property="IsMouseOver" Value="True">
+
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="Background.Opacity" To=".4" Duration="0:0:0.17"/>
+                                <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="Opacity" To=".95" Duration="0:0:0.13"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="Background.Opacity" To="1" Duration="0:0:0.17"/>
+                                <DoubleAnimation AccelerationRatio="0.1" Storyboard.TargetProperty="Opacity" To=".7" Duration="0:0:0.13"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
 </Application>

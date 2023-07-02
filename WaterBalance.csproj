@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="achievement.png" />
+    <None Remove="calendar.png" />
     <None Remove="drop.png" />
     <None Remove="glass.png" />
     <None Remove="icons\drop.png" />
@@ -16,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="achievement.png" />
+    <Resource Include="calendar.png" />
     <Resource Include="icons\achievement.png" />
     <Resource Include="icons\arrow.png" />
     <Resource Include="icons\calendar.png" />

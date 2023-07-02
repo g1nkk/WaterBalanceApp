@@ -43,7 +43,7 @@ namespace WaterBalance
             calculatePanels[3] = mainWindow.CalculatePanel4;
             calculatePanels[4] = mainWindow.CalculatePanel5;
 
-            CalculateButton = new RelayCommand(CheckWaterFields);
+            CalculateButton = new RelayCommand(ContinueButton);
 
             WeightUpButton = new RelayCommand(WeightUp);
             WeightDownButton = new RelayCommand(WeightDown);
@@ -99,7 +99,43 @@ namespace WaterBalance
             }
         }
 
-        float CalculateWaterGoal()
+        void ContinueButton()
+        {
+            if (currentCalculatePanelSelected < calculatePanels.Length - 1)
+            {
+                if (AllFieldsFilled(currentCalculatePanelSelected))
+                {
+                    if (mainWindow.InvalidLabel.Opacity > 0)
+                        mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.hideAnimation);
+
+                    currentCalculatePanelSelected++;
+                    mainWindow.HidePanel(calculatePanels[currentCalculatePanelSelected - 1]);
+                    mainWindow.ShowPanel(calculatePanels[currentCalculatePanelSelected]);
+                }
+                else
+                {
+                    mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.showAnimation);
+                }
+            }
+            else
+            {
+                int goal = CalculateWaterGoal(); // goal in liters
+
+                mainWindow.CreateNewData(goal);
+
+                mainWindow.SetupUserDependentComponents();
+
+                mainWindow.HidePanel(mainWindow.panels[5]); // calculate panel
+                mainWindow.ShowPanel(mainWindow.panels[0]); // main menu
+                mainWindow.ShowPanel(mainWindow.panels[6]); // up and down buttons
+
+                mainWindow.currentPanelSelected = 0;
+
+                ResetPanelsVisibility();
+            }
+        }
+
+        int CalculateWaterGoal()
         {
             /*
             goal = BMR * activity factor
@@ -125,7 +161,7 @@ namespace WaterBalance
 
             int goalMl = (int)(BMR * factor);
 
-            return (float)Math.Round((double)goalMl / 1000, 1); // convert ml to l and round
+            return goalMl; // convert ml to l and round
         }
         float GetActivityFactor()
         {
@@ -148,45 +184,14 @@ namespace WaterBalance
             else return 1;
         }
 
-        void CheckWaterFields()
+        void ResetPanelsVisibility()
         {
-            if (currentCalculatePanelSelected < calculatePanels.Length - 1)
+            foreach (var panel in calculatePanels)
             {
-                if (AllFieldsFilled(currentCalculatePanelSelected))
-                {
-                    if (mainWindow.InvalidLabel.Opacity > 0)
-                        mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.hideAnimation);
-
-                    currentCalculatePanelSelected++;
-                    mainWindow.hidePanel(calculatePanels[currentCalculatePanelSelected - 1]);
-                    mainWindow.showPanel(calculatePanels[currentCalculatePanelSelected]);
-                }
-                else
-                {
-                    mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.showAnimation);
-                }
+                panel.Visibility = Visibility.Hidden;
             }
-            else
-            {
-                float goal = CalculateWaterGoal(); // goal in liters
-
-                mainWindow.userProfile = new ProfileData(goal, mainWindow.NameTextBox.Text);
-
-                mainWindow.SetupUserDependentComponents();
-
-                mainWindow.hidePanel(mainWindow.panels[5]); // calculate panel
-                mainWindow.showPanel(mainWindow.panels[0]); // main menu
-                mainWindow.showPanel(mainWindow.panels[6]); // up and down buttons
-
-                mainWindow.currentPanelSelected = 0;
-
-                foreach (var panel in calculatePanels)
-                {
-                    panel.Visibility = Visibility.Hidden;
-                }
-                calculatePanels[0].Visibility = Visibility.Visible;
-                currentCalculatePanelSelected = 0;
-            }
+            calculatePanels[0].Visibility = Visibility.Visible;
+            currentCalculatePanelSelected = 0;
         }
 
         bool IsActivitySelected()

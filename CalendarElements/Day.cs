@@ -3,6 +3,6 @@
     public class Day
     {
         public bool GoalCompleted = false;
-        public float WaterDrank = 0;
+        public int WaterDrank = 0;
     }
 }

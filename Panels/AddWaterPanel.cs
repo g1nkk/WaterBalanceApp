@@ -16,6 +16,7 @@ namespace WaterBalance
     public class AddWaterPanel
     {
         public ICommand AddWaterButton { get; }
+        public ICommand AddWaterAmountButton { get; }
 
         private readonly MainWindow mainWindow;
 
@@ -25,6 +26,7 @@ namespace WaterBalance
         {
             this.mainWindow = mainWindow;
             AddWaterButton = new RelayCommand(AddButton);
+            AddWaterAmountButton = new RelayCommand<string>(AddWaterAmount);
         }
 
         void AddButton()
@@ -90,6 +92,29 @@ namespace WaterBalance
             mainWindow.mainMenuGrid.Effect.BeginAnimation(BlurEffect.RadiusProperty, backgroundAnimation);
 
             IsAddWaterPanelVisible = false;
+        }
+
+        void AddWaterAmount(string addAmount)
+        {
+            int amount = Convert.ToInt32(addAmount);
+            mainWindow.userProfile.TotalWaterConsumed += amount;
+            mainWindow.calendarData.AddWater(amount);
+
+            mainWindow.waterConsumedMl.Content = mainWindow.calendarData.GetTodayWaterAmount();
+            UpdateWaterPercent();
+
+            AddButton();
+
+            SaveAndLoadManager.SaveCalendar(mainWindow.calendarData);
+            SaveAndLoadManager.SaveProfile(mainWindow.userProfile);
+        }
+
+        void UpdateWaterPercent()
+        {
+            int goal = mainWindow.userProfile.DailyGoal;
+            int consumed = mainWindow.calendarData.GetTodayWaterAmount();
+
+            mainWindow.waterConsumedPercent.Content = (consumed/goal*100) + "%";
         }
     }
 }

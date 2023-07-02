@@ -36,18 +36,21 @@ namespace WaterBalance
         }
         public static void SaveAchivements(AchievementManager achievementManager)
         {
+            string saveFilePath = Path.Combine(saveDataFolderPath, "AchievementsData.json");
             string json = JsonConvert.SerializeObject(achievementManager);
-            File.WriteAllText(saveDataFolderPath, json);
+            File.WriteAllText(saveFilePath, json);
         }
         public static void SaveCalendar(CalendarData calendarData)
         {
+            string saveFilePath = Path.Combine(saveDataFolderPath, "CalendarData.json");
             string json = JsonConvert.SerializeObject(calendarData);
-            File.WriteAllText(saveDataFolderPath, json);
+            File.WriteAllText(saveFilePath, json);
         }
-        static void SaveProfile(ProfileData appData)
+        public static void SaveProfile(ProfileData appData)
         {
+            string saveFilePath = Path.Combine(saveDataFolderPath, "ProfileData.json");
             string json = JsonConvert.SerializeObject(appData);
-            File.WriteAllText(saveDataFolderPath, json);
+            File.WriteAllText(saveFilePath, json);
         }
 
         public static void LoadAllData(out ProfileData appData, out CalendarData calendarData, out AchievementManager achievementManager)

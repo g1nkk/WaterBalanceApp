@@ -17,7 +17,16 @@ namespace WaterBalance
         public CalendarData calendarData;
         public AchievementManager achievementManager;
 
+        PanelManager panelManager;
+
         public Grid[] panels = new Grid[7];
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            SetupDefaultComponents();
+            LoadAndCheckData();
+        }
 
         readonly public static DoubleAnimation showAnimation = new DoubleAnimation
         {
@@ -35,20 +44,26 @@ namespace WaterBalance
             EasingFunction = new QuadraticEase()
         };
 
-        public MainWindow()
+        public void CreateNewData(int goal)
         {
-            InitializeComponent();
-            SetupDefaultComponents();
-            LoadAndCheckData();
+            userProfile = new ProfileData(goal, NameTextBox.Text);
+
+            calendarData = new CalendarData();
+
+            achievementManager = new AchievementManager();
+
+            SaveAndLoadManager.SaveAllData(userProfile, calendarData, achievementManager);
+
+            SetupUserDependentComponents();
         }
 
-        public void hidePanel(Grid panel)
+        public void HidePanel(Grid panel)
         {
             panel.BeginAnimation(OpacityProperty, hideAnimation);;
             panel.Visibility = Visibility.Hidden;
         }
 
-        public void showPanel(Grid panel)
+        public void ShowPanel(Grid panel)
         {
             panel.Visibility = Visibility.Visible;
             panel.BeginAnimation(OpacityProperty, showAnimation);
@@ -59,6 +74,7 @@ namespace WaterBalance
             if (SaveAndLoadManager.SaveFlesExists())
             {
                 SaveAndLoadManager.LoadAllData(out userProfile, out calendarData, out achievementManager);
+                SetupUserDependentComponents();
                 startupPanel = panels[0]; // main menu
             }
             else
@@ -69,9 +85,8 @@ namespace WaterBalance
 
         public void SetupUserDependentComponents()
         {
-            GoalLitersText.Content = userProfile.DailyGoal.ToString("F2") + " L";
-            litersSlider.Value = userProfile.DailyGoal;
-            MainMenuGoalLabel.Content = userProfile.DailyGoal.ToString("F1") + " L";
+            GoalLitersText.Content = userProfile.DailyGoal.ToString() + " ml";
+            MainMenuGoalLabel.Content = userProfile.DailyGoal.ToString() + " ml";
             MainMenuNameLabel.Content = userProfile.Name;
         }
         void SetupDefaultComponents()
@@ -84,7 +99,7 @@ namespace WaterBalance
             panels[5] = calculateGrid;
             panels[6] = ContolButtons;
 
-            DataContext = new PanelManager(this);
+            DataContext = panelManager = new PanelManager(this);
         }
  
 
@@ -96,7 +111,7 @@ namespace WaterBalance
 
         void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            showPanel(startupPanel);
+            ShowPanel(startupPanel);
         }
     }
 }

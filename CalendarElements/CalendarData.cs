@@ -7,7 +7,7 @@ using System.Windows.Threading;
 
 namespace WaterBalance
 {
-    public class CalendarData                                                                                                                                                                                                                                  
+    public class CalendarData                                                                                                                                                                                                                                 
     {
         public Month Month { get; set; }
         private int CurrentDay;
@@ -16,7 +16,7 @@ namespace WaterBalance
         public CalendarData()
         {
             Month = new Month();
-            CurrentDay = DateTime.Now.Day;
+            SetTodayDate();
 
             NextDayTimer = new DispatcherTimer();
             NextDayTimer.Tick += Timer_Tick;
@@ -28,6 +28,11 @@ namespace WaterBalance
             CurrentDay = DateTime.Now.Day;
             if (Month.IsDayEmpty(CurrentDay))
                 Month.CreateDay(CurrentDay);
+        }
+
+        public int GetTodayWaterAmount()
+        {
+            return Month.GetDayWater(CurrentDay);
         }
 
         public void AddWater(int waterAmount)
@@ -59,12 +64,7 @@ namespace WaterBalance
 
         bool IsNewDay()
         {
-            var currentTime = DateTime.Now.Hour;
-            if (currentTime == 0)
-            {
-                return true;
-            }
-            return false;
+            return CurrentDay != DateTime.Now.Day;
         }
     }
 }

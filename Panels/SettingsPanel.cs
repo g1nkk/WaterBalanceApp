@@ -11,6 +11,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
+using DevExpress.Mvvm.UI;
 
 namespace WaterBalance
 {
@@ -35,19 +38,23 @@ namespace WaterBalance
             LiterSliderValueChanged = new RelayCommand(LitersSlider_ValueChanged);
         }
 
+
+
         void RecalculateButtonClick()
         {
-            mainWindow.showPanel(mainWindow.panels[5]); // calculate panel
-            mainWindow.hidePanel(mainWindow.panels[4]); // options menu
-            mainWindow.hidePanel(mainWindow.panels[6]); // up and down buttons
+            mainWindow.ShowPanel(mainWindow.panels[5]); // calculate panel
+            mainWindow.HidePanel(mainWindow.panels[4]); // options menu
+            mainWindow.HidePanel(mainWindow.panels[6]); // up and down buttons
         }
 
         void ClearAllDataClick()
         {
-            if (MessageBox.Show("You sure you want to clear all data?",
+            if (MessageBox.Show("You sure you want to clear all data and create new profile?",
             "Clear All Data", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-
+                mainWindow.ShowPanel(mainWindow.panels[5]); // calculate panel
+                mainWindow.HidePanel(mainWindow.panels[4]); // options menu
+                mainWindow.HidePanel(mainWindow.panels[6]); // up and down buttons
             }
         }
 
@@ -95,8 +102,6 @@ namespace WaterBalance
 
         void LitersSlider_ValueChanged()
         {
-
-            mainWindow.userProfile.DailyGoal = (float)mainWindow.litersSlider.Value;
             mainWindow.GoalLitersText.Content = mainWindow.userProfile.DailyGoal.ToString("F2") + " L";
         }
     }

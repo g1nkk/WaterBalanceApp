@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace WaterBalance
 {
@@ -6,11 +8,12 @@ namespace WaterBalance
     {
         public string Name { get; set; }
         public int TotalWaterConsumed { get; set; }
-        public float DailyGoal { get; set; }
+        public int DailyGoal { get; set; }
         public int CurrentStreak { get; set; }
         public int MaxStreak { get; set; }
 
-        public ProfileData(string name, int totalWaterConsumed, float dailyGoal, int currentStreak, int maxStreak)
+        [JsonConstructor]
+        public ProfileData(string name, int totalWaterConsumed, int dailyGoal, int currentStreak, int maxStreak)
         {
             Name = name;
             TotalWaterConsumed = totalWaterConsumed;
@@ -19,7 +22,7 @@ namespace WaterBalance
             MaxStreak = maxStreak;
         }
 
-        public ProfileData(float dailyGoal, string name) // new profile
+        public ProfileData(int dailyGoal, string name) // new profile
         {
             Name = name;
             TotalWaterConsumed = 0;

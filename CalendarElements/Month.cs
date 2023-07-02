@@ -18,6 +18,16 @@ namespace WaterBalance
             days = new Day[DateTime.DaysInMonth(date.Year,date.Month)];
         }
 
+        public bool IsGoalCompleted(int day)
+        {
+            return days[day].GoalCompleted;
+        }
+
+        public int GetDayWater(int day)
+        {
+            return days[day].WaterDrank;
+        }
+
         public bool IsDayEmpty(int day)
         {
             return days[day] == null;

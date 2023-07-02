@@ -47,9 +47,9 @@ namespace WaterBalance
         {
                 if (mainWindow.currentPanelSelected != int.Parse(buttonPos))
                 {
-                    mainWindow.hidePanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+                    mainWindow.HidePanel(mainWindow.panels[mainWindow.currentPanelSelected]);
                     mainWindow.currentPanelSelected = int.Parse(buttonPos); // new panel
-                    mainWindow.showPanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+                    mainWindow.ShowPanel(mainWindow.panels[mainWindow.currentPanelSelected]);
                 }
         }
     }
