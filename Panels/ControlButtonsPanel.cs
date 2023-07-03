@@ -45,12 +45,12 @@ namespace WaterBalance
 
         void ControlButtonClick(string buttonPos)
         {
-                if (mainWindow.currentPanelSelected != int.Parse(buttonPos))
-                {
-                    mainWindow.HidePanel(mainWindow.panels[mainWindow.currentPanelSelected]);
-                    mainWindow.currentPanelSelected = int.Parse(buttonPos); // new panel
-                    mainWindow.ShowPanel(mainWindow.panels[mainWindow.currentPanelSelected]);
-                }
+            if (mainWindow.currentPanelSelected != int.Parse(buttonPos))
+            {
+                mainWindow.HidePanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+                mainWindow.currentPanelSelected = int.Parse(buttonPos); // new panel
+                mainWindow.ShowPanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+            }
         }
     }
 }

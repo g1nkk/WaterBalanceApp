@@ -523,7 +523,7 @@
                         <ImageBrush Stretch="Uniform" ImageSource="icons/waterIcon.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="calendarControlButton" Style="{StaticResource controlDefault}" Opacity=".85" HorizontalAlignment="Left" Margin="117,12,0,0" VerticalAlignment="Top" Height="32" BorderBrush="{x:Null}" Width="34" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Command="{Binding ClassInstances[ControlButtonsPanel].ControlButtonSelect}" CommandParameter="2">
+                <Button x:Name="calendarControlButton" Style="{StaticResource controlDefault}" Opacity=".85" HorizontalAlignment="Left" Margin="117,12,0,0" VerticalAlignment="Top" Height="32" BorderBrush="{x:Null}" Width="34" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Command="{Binding ClassInstances[ControlButtonsPanel].ControlButtonSelect}" CommandParameter="2" >
 
                     <Button.RenderTransform>
                         <TransformGroup>
