@@ -17,6 +17,8 @@ namespace WaterBalance
         public CalendarData calendarData;
         public AchievementManager achievementManager;
 
+        public ToastNotifications notifications;
+
         PanelManager panelManager;
 
         public Grid[] panels = new Grid[7];
@@ -88,16 +90,19 @@ namespace WaterBalance
             GoalLitersText.Content = userProfile.DailyGoal.ToString() + " ml";
             MainMenuGoalLabel.Content = userProfile.DailyGoal.ToString() + " ml";
             MainMenuNameLabel.Content = userProfile.Name;
+            NotificationsButton.Content = userProfile.NotificationsEnabled ? "disable notifications" : "enable notifications";
         }
         void SetupDefaultComponents()
         {
             panels[0] = mainMenuGrid;
             panels[1] = addGrid;
-            // calendar panels[2] = ;
+            panels[2] = calendarGrid;
             // achivements panels[3] = ;
             panels[4] = optionsGrid;
             panels[5] = calculateGrid;
             panels[6] = ContolButtons;
+
+            notifications = new ToastNotifications(this);
 
             DataContext = panelManager = new PanelManager(this);
         }

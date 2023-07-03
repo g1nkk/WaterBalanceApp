@@ -316,7 +316,7 @@
                             </TransformGroup>
                         </RadioButton.RenderTransform>
                     </RadioButton>
-                    <RadioButton x:Name="moderately" Content="Moderately active                              " GroupName="activity" HorizontalAlignment="Left" Margin="118,296,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" RenderTransformOrigin="0.5,0.5" Width="147" Foreground="#FF7CA6D6">
+                    <RadioButton x:Name="moderately" Content="Moderately active" GroupName="activity" HorizontalAlignment="Left" Margin="118,296,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" RenderTransformOrigin="0.5,0.5" Width="147" Foreground="#FF7CA6D6">
                         <RadioButton.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -365,7 +365,7 @@
                     <RowDefinition Height="262*"/>
                 </Grid.RowDefinitions>
 
-                <Button Content=" get fox picture" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,366,131,254" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].ShowFoxButton}" Grid.RowSpan="2">
+                <Button Content=" get fox picture" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,331,131,23" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].ShowFoxButton}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF5798FF"/>
@@ -381,12 +381,12 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <Image x:Name="foxImage" HorizontalAlignment="Left" Height="148" Margin="93,31,0,0" Grid.Row="1" VerticalAlignment="Top" Width="176">
+                <Image x:Name="foxImage" HorizontalAlignment="Left" Height="151" VerticalAlignment="Top" Width="176" Margin="93,382,0,0" Grid.RowSpan="2">
                     <Image.Effect>
                         <DropShadowEffect Opacity=".7" BlurRadius="9" ShadowDepth="0"/>
                     </Image.Effect>
                 </Image>
-                <Button Content="developer page" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,215,131,143" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].DeveloperPageButton}">
+                <Button Content="developer page" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,283,131,71" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].DeveloperPageButton}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF5798FF"/>
@@ -402,7 +402,7 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <Button x:Name="clearAllDataButton" Content="create new profile" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="118,168,118,191" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].ClearAllDataButton}">
+                <Button x:Name="clearAllDataButton" Content="clear all data" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,195,131,164" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].ClearAllDataButton}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF6177A0"/>
@@ -418,28 +418,25 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <Label Content="Your daily goal:" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Width="172" FontSize="24" FontFamily="Bahnschrift SemiBold">
-                    <Label.Effect>
-                        <DropShadowEffect ShadowDepth="0" BlurRadius="8" Opacity=".4"/>
-                    </Label.Effect>
-                    <Label.Foreground>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF51C6FF"/>
-                            <GradientStop Color="#FF2A64FF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Label.Foreground>
+                <Label Content="Your daily goal:" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Width="172" FontSize="24" FontFamily="Bahnschrift SemiBold" Foreground="#FF1E55AF">
                 </Label>
-                <Label x:Name="GoalLitersText" Content="4.0 L" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top" Width="88" FontSize="26" FontFamily="Bahnschrift SemiBold">
-                    <Label.Effect>
-                        <DropShadowEffect ShadowDepth="0" BlurRadius="8" Opacity=".4"/>
-                    </Label.Effect>
-                    <Label.Foreground>
+                <Label x:Name="GoalLitersText" Content="2000ml" HorizontalAlignment="Center" Margin="0,118,0,0" VerticalAlignment="Top" Width="118" FontSize="24" FontFamily="Franklin Gothic Medium" HorizontalContentAlignment="Center" Foreground="#FF77AEEC"/>
+                <Button x:Name="NotificationsButton" Content="enable notifications" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="118,235,118,120" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].ToggleNotificationsButton}">
+                    <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF89BAFF"/>
-                            <GradientStop Color="#FF5093FF" Offset="1"/>
+                            <GradientStop Color="#FF5798FF"/>
+                            <GradientStop Color="#FF2075FF" Offset="1"/>
                         </LinearGradientBrush>
-                    </Label.Foreground>
-                </Label>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
             </Grid>
             <Grid x:Name="mainMenuGrid" Visibility="Hidden" >
                 <Grid.Effect>
@@ -526,7 +523,7 @@
                         <ImageBrush Stretch="Uniform" ImageSource="icons/waterIcon.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="calendarControlButton" Style="{StaticResource controlDefault}" Opacity=".85" HorizontalAlignment="Left" Margin="117,12,0,0" VerticalAlignment="Top" Height="32" BorderBrush="{x:Null}" Width="34" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Command="{Binding ClassInstances[ControlButtonsPanel].ControlButtonSelect}" CommandParameter="1">
+                <Button x:Name="calendarControlButton" Style="{StaticResource controlDefault}" Opacity=".85" HorizontalAlignment="Left" Margin="117,12,0,0" VerticalAlignment="Top" Height="32" BorderBrush="{x:Null}" Width="34" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Command="{Binding ClassInstances[ControlButtonsPanel].ControlButtonSelect}" CommandParameter="2">
 
                     <Button.RenderTransform>
                         <TransformGroup>

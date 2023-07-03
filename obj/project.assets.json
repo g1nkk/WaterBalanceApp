@@ -908,23 +908,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kirill\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj",
       "projectName": "WaterBalance",
-      "projectPath": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\WaterBalance.csproj",
-      "packagesPath": "C:\\Users\\Kirill\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kirill\\source\\repos\\WaterBalance\\obj\\",
+      "projectPath": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\WaterBalance.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\homeworks\\WaterBalanceApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kirill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1004,7 +1004,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1013,7 +1013,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'DevExpressMvvm 18.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0-windows10.0.17763'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"DevExpressMvvm 18.2.3\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0-windows10.0.17763\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "DevExpressMvvm",
       "targetGraphs": [
         "net7.0-windows10.0.17763"
@@ -1023,7 +1023,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.Xaml.Behaviors.Wpf 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0-windows10.0.17763'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"Microsoft.Xaml.Behaviors.Wpf 1.0.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0-windows10.0.17763\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Microsoft.Xaml.Behaviors.Wpf",
       "targetGraphs": [
         "net7.0-windows10.0.17763"
@@ -1033,7 +1033,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Parallax.WPF 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0-windows10.0.17763'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"Parallax.WPF 1.0.8\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0-windows10.0.17763\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Parallax.WPF",
       "targetGraphs": [
         "net7.0-windows10.0.17763"

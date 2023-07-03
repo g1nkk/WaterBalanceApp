@@ -11,6 +11,7 @@ using System.Windows.Media.Media3D;
 using System.Xml.Linq;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.Input;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WaterBalance
 {
@@ -158,10 +159,9 @@ namespace WaterBalance
             {
                 BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
             }
-
             int goalMl = (int)(BMR * factor);
 
-            return goalMl; // convert ml to l and round
+            return (goalMl / 100) * 100; ; // goal in ml and round
         }
         float GetActivityFactor()
         {

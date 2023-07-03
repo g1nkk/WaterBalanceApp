@@ -22,31 +22,30 @@ namespace WaterBalance
         MainWindow mainWindow;
 
         public ICommand ShowFoxButton { get; }
-        public ICommand RecalculateButton { get; }
         public ICommand DeveloperPageButton { get; }
         public ICommand ClearAllDataButton { get; }
-        public ICommand LiterSliderValueChanged { get; }
+        public ICommand ToggleNotificationsButton { get; }
 
         public SettingsPanel(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
 
             ShowFoxButton = new RelayCommand(ShowFoxPictureClick);
-            RecalculateButton = new RelayCommand(RecalculateButtonClick);
             DeveloperPageButton = new RelayCommand(DeveloperPageButtonClick);
             ClearAllDataButton = new RelayCommand(ClearAllDataClick);
-            LiterSliderValueChanged = new RelayCommand(LitersSlider_ValueChanged);
+            ToggleNotificationsButton = new RelayCommand(ToggleNotifications);
         }
 
-
-
-        void RecalculateButtonClick()
+        void ToggleNotifications()
         {
-            mainWindow.ShowPanel(mainWindow.panels[5]); // calculate panel
-            mainWindow.HidePanel(mainWindow.panels[4]); // options menu
-            mainWindow.HidePanel(mainWindow.panels[6]); // up and down buttons
-        }
+            bool notificationsEnabled = !mainWindow.userProfile.NotificationsEnabled;
+            mainWindow.userProfile.NotificationsEnabled = notificationsEnabled;
 
+            string buttonContent = notificationsEnabled ? "disable notifications" : "enable notifications";
+            mainWindow.NotificationsButton.Content = buttonContent;
+
+            SaveAndLoadManager.SaveProfile(mainWindow.userProfile);
+        }
         void ClearAllDataClick()
         {
             if (MessageBox.Show("You sure you want to clear all data and create new profile?",
@@ -98,11 +97,6 @@ namespace WaterBalance
             {
                 MessageBox.Show("Error occured: " + ex.Message);
             }
-        }
-
-        void LitersSlider_ValueChanged()
-        {
-            mainWindow.GoalLitersText.Content = mainWindow.userProfile.DailyGoal.ToString("F2") + " L";
         }
     }
 }

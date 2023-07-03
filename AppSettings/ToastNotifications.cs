@@ -9,43 +9,55 @@ using System.Windows;
 
 namespace WaterBalance
 {
-    internal class ToastNotificationsTimer
+    public class ToastNotifications
     {
-        List<int> notificationTime = new List<int>();
+        MainWindow mainWindow;
+        private HashSet<int> notifiedHours = new HashSet<int>();
         private DispatcherTimer timer;
 
-        ToastNotificationsTimer()
+        public ToastNotifications(MainWindow mainWindow)
         {
             timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
             timer.Start();
-
-            notificationTime.Add(9);
-            notificationTime.Add(12);
-            notificationTime.Add(14);
-            notificationTime.Add(17);
-            notificationTime.Add(20);
+            this.mainWindow = mainWindow;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (timeToNotify())
+            if (ShouldNotify())
             {
-                ToastNotificationsManager.ShowToastNotification();
+                Notify();
             }
         }
 
-        bool timeToNotify()
+        private bool ShouldNotify()
         {
-            var currentTime = DateTime.Now.Hour;
-            foreach (var time in notificationTime)
-            {
-                if (time == currentTime)
-                {
-                    return true;
-                }
-            }
-            return false;
+            bool isNotificationEnabled = mainWindow.userProfile.NotificationsEnabled;
+            bool isSameHourAsArray = IsCurrentHourInArray();
+
+            return isNotificationEnabled && isSameHourAsArray;
+        }
+
+        private bool IsCurrentHourInArray()
+        {
+            int currentHour = DateTime.Now.Hour;
+            int[] notificationHours = GetNotificationHours();
+
+            return notificationHours.Contains(currentHour) && !notifiedHours.Contains(currentHour);
+        }
+
+        private void Notify()
+        {
+            ToastNotificationsManager.ShowToastNotification();
+
+            int currentHour = DateTime.Now.Hour;
+            notifiedHours.Add(currentHour);
+        }
+
+        private int[] GetNotificationHours()
+        {
+            return new int[] { 8, 10, 12, 14, 16, 20 };
         }
 
     }
@@ -77,7 +89,6 @@ namespace WaterBalance
             var toast = new ToastNotification(toastXml);
             ToastNotificationManager.CreateToastNotifier("Water Balance").Show(toast);
         }
-
     }
 }
 

@@ -100,7 +100,7 @@ namespace WaterBalance
             mainWindow.userProfile.TotalWaterConsumed += amount;
             mainWindow.calendarData.AddWater(amount);
 
-            mainWindow.waterConsumedMl.Content = mainWindow.calendarData.GetTodayWaterAmount();
+            mainWindow.waterConsumedMl.Content = mainWindow.calendarData.GetTodayWaterAmount() + " ml";
             UpdateWaterPercent();
 
             AddButton();
@@ -112,9 +112,10 @@ namespace WaterBalance
         void UpdateWaterPercent()
         {
             int goal = mainWindow.userProfile.DailyGoal;
-            int consumed = mainWindow.calendarData.GetTodayWaterAmount();
+            float consumed = mainWindow.calendarData.GetTodayWaterAmount();
+            float percentage = consumed / goal * 100;
 
-            mainWindow.waterConsumedPercent.Content = (consumed/goal*100) + "%";
+            mainWindow.waterConsumedPercent.Content = (int)percentage + "%";
         }
     }
 }
