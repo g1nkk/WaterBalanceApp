@@ -22,3 +22,9 @@
 
 ![menu](https://i.ibb.co/9r6SzVV/Screenshot-2023-07-13-221508.png)
 ![panel](https://i.ibb.co/1Gvc3Jg/Screenshot-2023-07-13-221351.png)
+
+### System Requirements
+ - Windows 10+
+
+[API]: <https://randomfox.ca/floof/>
+[Serilog]: <https://serilog.net>
