@@ -7,11 +7,13 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.Input;
+using Serilog;
 
 namespace WaterBalance
 {
     public class ControlButtonsPanel
     {
+        PanelManager manager;
         private Button[] controlButtons = new Button[4];
 
         readonly MainWindow mainWindow;
@@ -20,8 +22,9 @@ namespace WaterBalance
         public ICommand Minimize { get; }
         public ICommand ControlButtonSelect { get; }
 
-        public ControlButtonsPanel(MainWindow mainWindow)
+        public ControlButtonsPanel(MainWindow mainWindow, PanelManager manager)
         {
+            this.manager = manager;
             this.mainWindow = mainWindow;
 
             controlButtons[0] = mainWindow.waterControlButton;
@@ -36,6 +39,7 @@ namespace WaterBalance
 
         void CloseButton()
         {
+            Log.Information("App closed");
             Application.Current.Shutdown();
         }
         void MinimizeButton()
@@ -45,11 +49,11 @@ namespace WaterBalance
 
         void ControlButtonClick(string buttonPos)
         {
-            if (mainWindow.currentPanelSelected != int.Parse(buttonPos))
+            if (manager.currentPanelSelected != int.Parse(buttonPos))
             {
-                mainWindow.HidePanel(mainWindow.panels[mainWindow.currentPanelSelected]);
-                mainWindow.currentPanelSelected = int.Parse(buttonPos); // new panel
-                mainWindow.ShowPanel(mainWindow.panels[mainWindow.currentPanelSelected]);
+                PanelManager.HidePanel(manager.panels[manager.currentPanelSelected]);
+                manager.currentPanelSelected = int.Parse(buttonPos); // new panel
+                PanelManager.ShowPanel(manager.panels[manager.currentPanelSelected]);
             }
         }
     }

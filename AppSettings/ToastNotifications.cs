@@ -11,16 +11,16 @@ namespace WaterBalance
 {
     public class ToastNotifications
     {
-        MainWindow mainWindow;
+        PanelManager manager;
         private HashSet<int> notifiedHours = new HashSet<int>();
         private DispatcherTimer timer;
 
-        public ToastNotifications(MainWindow mainWindow)
+        public ToastNotifications(PanelManager manager)
         {
             timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
             timer.Start();
-            this.mainWindow = mainWindow;
+            this.manager = manager;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -33,10 +33,11 @@ namespace WaterBalance
 
         private bool ShouldNotify()
         {
-            bool isNotificationEnabled = mainWindow.userProfile.NotificationsEnabled;
+            bool isNotificationEnabled = manager.userProfile?.NotificationsEnabled ?? true;
+
             bool isSameHourAsArray = IsCurrentHourInArray();
 
-            return isNotificationEnabled && isSameHourAsArray;
+            return isSameHourAsArray && isNotificationEnabled;
         }
 
         private bool IsCurrentHourInArray()
@@ -49,7 +50,7 @@ namespace WaterBalance
 
         private void Notify()
         {
-            ToastNotificationsManager.ShowToastNotification();
+            ToastNotificationsManager.ShowReminderNotification();
 
             int currentHour = DateTime.Now.Hour;
             notifiedHours.Add(currentHour);
@@ -57,13 +58,13 @@ namespace WaterBalance
 
         private int[] GetNotificationHours()
         {
-            return new int[] { 8, 10, 12, 14, 16, 20 };
+            return new int[] { 8, 10, 12, 14, 16, 19, 20 };
         }
 
     }
     static class ToastNotificationsManager
     {
-        static public void ShowToastNotification()
+        static public void ShowReminderNotification()
         {
             string[] notificationTexts = new string[] 
             {
@@ -87,6 +88,25 @@ namespace WaterBalance
             var toastXml = new Windows.Data.Xml.Dom.XmlDocument();
             toastXml.LoadXml(xml);
             var toast = new ToastNotification(toastXml);
+            ToastNotificationManager.CreateToastNotifier("Water Balance").Show(toast);
+        }
+
+        static public void ShowAchievementCompletedNotification(Achievement achievement)
+        {
+            var title = $"Achievement \"{achievement.Name}\" completed!";
+
+            var xml = $@"<toast>
+                    <visual>
+                     <binding template=""ToastImageAndText04"">
+                          <text id=""1"">{title}</text>
+                    </binding>
+                    </visual>
+                </toast>";
+
+            var toastXml = new Windows.Data.Xml.Dom.XmlDocument();
+            toastXml.LoadXml(xml);
+            var toast = new ToastNotification(toastXml);
+
             ToastNotificationManager.CreateToastNotifier("Water Balance").Show(toast);
         }
     }

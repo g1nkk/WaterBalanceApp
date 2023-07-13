@@ -1,5 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.Input;
-using Syncfusion.Windows.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +15,7 @@ namespace WaterBalance
 {
     public class AddWaterPanel
     {
+        readonly PanelManager manager;
         public ICommand AddWaterButton { get; }
         public ICommand AddWaterAmountButton { get; }
 
@@ -22,8 +23,9 @@ namespace WaterBalance
 
         private bool IsAddWaterPanelVisible = false;
 
-        public AddWaterPanel(MainWindow mainWindow) 
+        public AddWaterPanel(MainWindow mainWindow, PanelManager manager)
         {
+            this.manager = manager;
             this.mainWindow = mainWindow;
             AddWaterButton = new RelayCommand(AddButton);
             AddWaterAmountButton = new RelayCommand<string>(AddWaterAmount);
@@ -94,25 +96,57 @@ namespace WaterBalance
             IsAddWaterPanelVisible = false;
         }
 
+        public void PlayGoalCompletedAnimation()
+        {
+            //TODO: create nice checkbox animation
+
+
+            //temp animation
+            DoubleAnimation showAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromMilliseconds(700),
+                EasingFunction = new QuadraticEase()
+            };
+
+            mainWindow.goalCheckmark.BeginAnimation(MainWindow.OpacityProperty, showAnimation);
+        }
+
         void AddWaterAmount(string addAmount)
         {
             int amount = Convert.ToInt32(addAmount);
-            mainWindow.userProfile.TotalWaterConsumed += amount;
-            mainWindow.calendarData.AddWater(amount);
 
-            mainWindow.waterConsumedMl.Content = mainWindow.calendarData.GetTodayWaterAmount() + " ml";
+            manager.userProfile.TotalWaterConsumed += amount;
+            manager.calendarData.AddWater(amount);
+
+            int todayAmount = manager.calendarData.GetTodayWaterAmount();
+
+            Log.Information($"Water added: {amount}, today consumption: {todayAmount}");
+
+            mainWindow.waterConsumedMl.Content = todayAmount + " ml";
             UpdateWaterPercent();
 
             AddButton();
 
-            SaveAndLoadManager.SaveCalendar(mainWindow.calendarData);
-            SaveAndLoadManager.SaveProfile(mainWindow.userProfile);
+            if (todayAmount >= manager.userProfile.DailyGoal)
+            {
+                PlayGoalCompletedAnimation();
+
+                if (manager.achievementManager.IsAchievementCompleted(new FirstGoalAchievement()))
+                {
+                    manager.achievementManager.CompleteAchievement(new FirstGoalAchievement());
+                }
+            }
+
+            SaveAndLoadManager.SaveCalendar(manager.calendarData);
+            SaveAndLoadManager.SaveProfile(manager.userProfile);
         }
 
         void UpdateWaterPercent()
         {
-            int goal = mainWindow.userProfile.DailyGoal;
-            float consumed = mainWindow.calendarData.GetTodayWaterAmount();
+            int goal = manager.userProfile.DailyGoal;
+            float consumed = manager.calendarData.GetTodayWaterAmount();
             float percentage = consumed / goal * 100;
 
             mainWindow.waterConsumedPercent.Content = (int)percentage + "%";

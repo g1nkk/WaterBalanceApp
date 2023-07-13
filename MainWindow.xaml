@@ -13,20 +13,14 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" Icon="/icons/icon.png" Loaded="Window_Loaded">
 
-    <Border CornerRadius="44" Margin="51,10,51,6">
-        <Border.Background>
-            <LinearGradientBrush StartPoint="1,0">
-                <GradientStop Color="#FFE9EFFF" Offset="0"/>
-                <GradientStop Color="#FFCCDDFF" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.Background>
+    <Border CornerRadius="44" Margin="51,10,51,6" Background="#FFD2E3FF">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="15" Opacity=".4"/>
         </Border.Effect>
 
         <Grid>
-            <Grid x:Name="calendarGrid" Visibility="Hidden">
-                <Grid x:Name="calendarDays" Margin="24,87,24,336" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="calendarGrid" Visibility="Visible">
+                <Grid x:Name="calendarDays" Margin="24,100,24,322" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
@@ -35,18 +29,18 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Border Background="#3F5B8FC8" CornerRadius="25" RenderTransformOrigin="0.5,0.5">
-                        <Border.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Border.RenderTransform>
-                    </Border>
-                    <Label x:Name="calendarMonth" Margin="114,-45,114,223" Content="Month" FontSize="24" FontFamily="Calibri" Foreground="#FF1E55AF" FontWeight="Bold"/>
                 </Grid>
+                <Border Panel.ZIndex="-1" Background="#3F5B8FC8" Margin="41,111,41,334" CornerRadius="15" RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                </Border>
+                <Label x:Name="calendarMonth" Margin="114,50,114,551" Content="Month" FontSize="24" FontFamily="Calibri" Foreground="#FF1E55AF" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             </Grid>
             <Grid x:Name="calculateGrid" Visibility="Hidden" >
 
@@ -359,7 +353,7 @@
                 <Label x:Name="InvalidLabel" Content="Please select all options." HorizontalAlignment="Center" Margin="0,472,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold Condensed" Foreground="#FFFF7777" Opacity="0" Height="34" Width="162" FontSize="18"/>
 
             </Grid>
-            <Grid x:Name="optionsGrid" Visibility="Visible">
+            <Grid x:Name="optionsGrid" Visibility="Hidden">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="383*"/>
                     <RowDefinition Height="262*"/>
@@ -386,7 +380,7 @@
                         <DropShadowEffect Opacity=".7" BlurRadius="9" ShadowDepth="0"/>
                     </Image.Effect>
                 </Image>
-                <Button Content="developer page" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,283,131,71" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].DeveloperPageButton}">
+                <Button Content="source code" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="131,283,131,71" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[SettingsPanel].SouceCodePageButton}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF5798FF"/>
@@ -438,6 +432,13 @@
                     </Button.RenderTransform>
                 </Button>
             </Grid>
+            <Grid x:Name="achievementsGrid" Visibility="Hidden">
+                <ScrollViewer Margin="15,62,15,90">
+                    <StackPanel x:Name="achievementStackPanel" Margin="15">
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
             <Grid x:Name="mainMenuGrid" Visibility="Hidden" >
                 <Grid.Effect>
                     <BlurEffect Radius="0"/>
@@ -447,40 +448,71 @@
                         <DropShadowEffect ShadowDepth="0" BlurRadius="7" RenderingBias="Performance" Opacity=".1" />
                     </Label.Effect>
                 </Label>
-                <Image HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality" Height="272" VerticalAlignment="Center" Width="270" Source="/icons/drop.png" Panel.ZIndex="1">
+                <Image Visibility="Visible" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality" Height="272" VerticalAlignment="Top" Width="270" Source="/icons/drop.png" Margin="0,195,0,0">
                     <Image.Effect>
                         <DropShadowEffect ShadowDepth="0" BlurRadius="35" Opacity=".1"/>
                     </Image.Effect>
                 </Image>
-                <Button Style="{StaticResource controlDefault}" Command="{Binding ClassInstances[AddWaterPanel].AddWaterButton}" Content="" HorizontalAlignment="Center" Margin="0,408,0,0" VerticalAlignment="Top" Height="68" Width="70" BorderBrush="{x:Null}" Foreground="{x:Null}" Panel.ZIndex="3">
+                <Button Visibility="Visible" Style="{StaticResource controlDefault}" Command="{Binding ClassInstances[AddWaterPanel].AddWaterButton}" Content="" HorizontalAlignment="Center" Margin="0,408,0,0" VerticalAlignment="Top" Height="68" Width="70" BorderBrush="{x:Null}" Foreground="{x:Null}" Panel.ZIndex="3">
                     <Button.Background>
                         <ImageBrush ImageSource="plus.png"/>
                     </Button.Background>
                 </Button>
                 <Label Content="Hello," HorizontalAlignment="Left" Margin="126,74,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Gray"/>
                 <Label x:Name="MainMenuNameLabel" Content="Name" HorizontalAlignment="Left" Margin="176,74,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Gray" Width="159"/>
-                <Label Content="Goal for today" HorizontalAlignment="Center" Margin="0,139,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Gray"/>
+                <Label Content="Goal for today" HorizontalAlignment="Center" Margin="0,139,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Gray" Panel.ZIndex="1"/>
                 <Label x:Name="MainMenuGoalLabel" Content="2000ml" HorizontalAlignment="Center" VerticalAlignment="Top" Height="35" Width="128" FontSize="25" FontFamily="Franklin Gothic Medium" Foreground="#FF94AFFF" Panel.ZIndex="2" Margin="0,104,0,0" HorizontalContentAlignment="Center">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="0" BlurRadius="7" RenderingBias="Performance" Opacity=".05" />
                     </Label.Effect>
                 </Label>
-                <Label x:Name="waterConsumedMl" Content="0ml" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="71" FontSize="18" FontFamily="Franklin Gothic Medium" Foreground="#FF9AB3FF" Panel.ZIndex="2" Margin="0,332,0,0" HorizontalContentAlignment="Center">
+                <Label x:Name="waterConsumedMl" Content="0ml" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="106" FontSize="18" FontFamily="Franklin Gothic Medium" Foreground="#FF9AB3FF" Panel.ZIndex="2" Margin="0,332,0,0" HorizontalContentAlignment="Center">
                 </Label>
+                <MediaElement HorizontalAlignment="Center" Height="309" Margin="0,181,0,0" VerticalAlignment="Top" Width="336" Source="/WaterAnimation.mov"/>
+                <Image x:Name="goalCheckmark" Margin="179,212,123,376" Opacity="0"  Source="/icons/demoCheckmark.png" Stretch="Fill" Panel.ZIndex="2"/>
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Margin="-574,-653,-568,-703" Source="/icons/dropBackground.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.235" ScaleY="0.205"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
             </Grid>
             <Grid x:Name="addGrid" Visibility="Hidden" Margin="0,166,0,192" >
                 <Border  Margin="10,10,10,10" CornerRadius="40" Grid.ColumnSpan="2" Background="#FF5B8FC8" >
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="22" ShadowDepth="0" Opacity=".3"/>
+                        <DropShadowEffect BlurRadius="22" ShadowDepth="0" Opacity=".4"/>
                     </Border.Effect>
                 </Border>
                 <WrapPanel Margin="25" Orientation="Horizontal">
-                    <Button Style="{StaticResource defaultWithBackground}" Command="{Binding ClassInstances[AddWaterPanel].AddWaterAmountButton}" CommandParameter="100" Height="100" Width="80" BorderBrush="{x:Null}" Background="#FFBACEFF" Foreground="{x:Null}">
+                    <Button Style="{StaticResource defaultWithBackground}" Margin="3" Command="{Binding ClassInstances[AddWaterPanel].AddWaterAmountButton}" CommandParameter="50" Height="90" Width="70" BorderBrush="{x:Null}" Background="#FFBACEFF" Foreground="{x:Null}">
                         <Grid>
-                            <Label Content="100 ml" Margin="0,72,0,0" FontFamily="Bahnschrift" Foreground="#FF444444" HorizontalAlignment="Center" />
-                            <Image Source="/achievement.png" Margin="0,8,0,28"/>
+                            <Label Content="50 ml" Margin="0,62,0,5" FontFamily="Franklin Gothic Medium" Foreground="#FF444444" HorizontalAlignment="Center" FontWeight="Bold" />
+                            <Image Margin="0,8,0,28" Source="/icons/50ml.png"/>
                         </Grid>
                     </Button>
+                    <Button Style="{StaticResource defaultWithBackground}" Margin="3" Command="{Binding ClassInstances[AddWaterPanel].AddWaterAmountButton}" CommandParameter="150" Height="90" Width="70" BorderBrush="{x:Null}" Background="#FFBACEFF" Foreground="{x:Null}">
+                        <Grid>
+                            <Label Content="150 ml" Margin="0,62,0,5" FontFamily="Franklin Gothic Medium" Foreground="#FF444444" HorizontalAlignment="Center" FontWeight="Bold" />
+                            <Image Source="/icons/150ml.png" Margin="0,8,0,28"/>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource defaultWithBackground}" Margin="3" Command="{Binding ClassInstances[AddWaterPanel].AddWaterAmountButton}" CommandParameter="250" Height="90" Width="70" BorderBrush="{x:Null}" Background="#FFBACEFF" Foreground="{x:Null}">
+                        <Grid>
+                            <Label Content="250 ml" Margin="0,62,0,5" FontFamily="Franklin Gothic Medium" Foreground="#FF444444" HorizontalAlignment="Center" FontWeight="Bold" />
+                            <Image Source="/icons/250ml.png" Margin="0,8,0,28"/>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource defaultWithBackground}" Margin="3" Command="{Binding ClassInstances[AddWaterPanel].AddWaterAmountButton}" CommandParameter="500" Height="90" Width="70" BorderBrush="{x:Null}" Background="#FFBACEFF" Foreground="{x:Null}">
+                        <Grid>
+                            <Label Content="500 ml" Margin="0,62,0,5" FontFamily="Franklin Gothic Medium" Foreground="#FF444444" HorizontalAlignment="Center" FontWeight="Bold" />
+                            <Image Source="/icons/500ml.png" Margin="0,8,0,28"/>
+                        </Grid>
+                    </Button>
+
                 </WrapPanel>
 
                 <Button Content="CANCEL" Opacity=".7" Style="{StaticResource defaultWithBackground}" FontFamily="Bahnschrift SemiBold" Foreground="#B2FFFFFF" Margin="150,289,150,-22" RenderTransformOrigin="0.5,0.5" Command="{Binding ClassInstances[AddWaterPanel].AddWaterButton}" Grid.ColumnSpan="2" Background="#FF5798FF">
@@ -537,7 +569,7 @@
                         <ImageBrush Stretch="Uniform" ImageSource="icons/calendar.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="achievementControlButton" Style="{StaticResource controlDefault}" Opacity=".85" HorizontalAlignment="Left" Margin="53,11,0,0" VerticalAlignment="Top" Height="34" BorderBrush="{x:Null}" Width="38" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Grid.Column="1" Command="{Binding ClassInstances[ControlButtonsPanel].ControlButtonSelect}" CommandParameter="2">
+                <Button x:Name="achievementControlButton" Style="{StaticResource controlDefault}" Opacity=".85" HorizontalAlignment="Left" Margin="53,11,0,0" VerticalAlignment="Top" Height="34" BorderBrush="{x:Null}" Width="38" RenderTransformOrigin="0.5,0.5" Foreground="{x:Null}" Grid.Column="1" Command="{Binding ClassInstances[ControlButtonsPanel].ControlButtonSelect}" CommandParameter="3">
                     <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="2" ScaleY="2"/>

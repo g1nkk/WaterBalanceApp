@@ -1,17 +1,16 @@
 ﻿using System.Windows.Controls;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace WaterBalance
 {
-    class AchievementsList
+    public class AchievementsList
     {
         public List<Achievement> Achievements = new();
 
         public AchievementsList()
         {
             Achievements.Add(new FirstGoalAchievement());
-            Achievements.Add(new OneWeekAchievement());
-            Achievements.Add(new OneMonthAchievement());
             Achievements.Add(new OneWeekStreakAchievent());
             Achievements.Add(new OneMonthStreakAchievent());
             Achievements.Add(new HundredLitersAchievement());
@@ -19,59 +18,42 @@ namespace WaterBalance
         }
     }
 
+    [JsonObject]
     class FirstGoalAchievement : Achievement
     {
-        public Image Icon { get; }
+        [JsonProperty]
         public string Name { get; } = "First Goal";
+        [JsonProperty]
         public string Description { get; } = "Complete goal for the first time";
-        public bool IsCompleted { get; set; } = false;
-    }
-
-    class OneWeekAchievement : Achievement
-    {
-        public Image Icon { get; }
-        public string Name { get; } = "Hydration Consistency";
-        public string Description { get; } = "C";
-        public bool IsCompleted { get; set; } = false;
-    }
-
-    class OneMonthAchievement : Achievement
-    {
-        public Image Icon { get; }
-        public string Name { get; } = "";
-        public string Description { get; } = "";
+        [JsonProperty]
         public bool IsCompleted { get; set; } = false;
     }
 
     class OneWeekStreakAchievent : Achievement
     {
-        public Image Icon { get; }
-        public string Name { get; } = "";
-        public string Description { get; } = "";
+        public string Name { get; } = "The beginning of the way";
+        public string Description { get; } = "Keep your water balance for one week";
         public bool IsCompleted { get; set; } = false;
     }
 
     class OneMonthStreakAchievent : Achievement
     {
-        public Image Icon { get; }
         public string Name { get; } = "Hydration Streak Master";
-        public string Description { get; } = "";
+        public string Description { get; } = "Keep your water balance for one month";
         public bool IsCompleted { get; set; } = false;
     }
 
     class HundredLitersAchievement : Achievement
     { 
-        public Image Icon { get; }
-        public string Name { get; } = "";
-        public string Description { get; } = "";
+        public string Name { get; } = "You drank 100 liters of water!";
+        public string Description { get; } = "100 liters of water is 400 large glasses!";
         public bool IsCompleted { get; set; } = false;
     }
 
     class ThousandLitersAchievement : Achievement
     {
-        public Image Icon { get; }
-        public string Name { get; } = "";
-        public string Description { get; } = "";
+        public string Name { get; } = "You drank 1000 literts of water!";
+        public string Description { get; } = "1000 liters of water is 4000 large glasses!";
         public bool IsCompleted { get; set; } = false;
     }
 }

@@ -2,25 +2,6 @@
   "version": 3,
   "targets": {
     "net7.0-windows10.0.17763": {
-      "DevExpressMvvm/18.2.3": {
-        "type": "package",
-        "compile": {
-          "lib/net452/DevExpress.Mvvm.UI.dll": {
-            "related": ".pdb"
-          },
-          "lib/net452/DevExpress.Mvvm.dll": {
-            "related": ".pdb;.UI.pdb"
-          }
-        },
-        "runtime": {
-          "lib/net452/DevExpress.Mvvm.UI.dll": {
-            "related": ".pdb"
-          },
-          "lib/net452/DevExpress.Mvvm.dll": {
-            "related": ".pdb;.UI.pdb"
-          }
-        }
-      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -111,19 +92,6 @@
           }
         }
       },
-      "Microsoft.Xaml.Behaviors.Wpf/1.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.Xaml.Behaviors.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Xaml.Behaviors.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -137,58 +105,48 @@
           }
         }
       },
-      "Parallax.WPF/1.0.8": {
-        "type": "package",
-        "dependencies": {
-          "DevExpressMvvm": "18.2.3",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.0.1"
-        },
-        "compile": {
-          "lib/net45/Parallax.WPF.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Parallax.WPF.dll": {}
-        }
-      },
-      "Syncfusion.Licensing/22.1.34": {
+      "Serilog/3.0.2-dev-02042": {
         "type": "package",
         "compile": {
-          "lib/net7.0/Syncfusion.Licensing.dll": {}
-        },
-        "runtime": {
-          "lib/net7.0/Syncfusion.Licensing.dll": {}
-        }
-      },
-      "Syncfusion.SfProgressBar.WPF/22.1.34": {
-        "type": "package",
-        "dependencies": {
-          "Syncfusion.Licensing": "22.1.34",
-          "Syncfusion.Shared.WPF": "22.1.34"
-        },
-        "compile": {
-          "lib/net6.0-windows7.0/Syncfusion.SfProgressBar.WPF.dll": {
+          "lib/net7.0/Serilog.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0-windows7.0/Syncfusion.SfProgressBar.WPF.dll": {
+          "lib/net7.0/Serilog.dll": {
             "related": ".xml"
           }
         }
       },
-      "Syncfusion.Shared.WPF/22.1.34": {
+      "Serilog.Sinks.Console/4.1.1-dev-00910": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "22.1.34"
+          "Serilog": "2.10.0"
         },
         "compile": {
-          "lib/net6.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+          "lib/net5.0/Serilog.Sinks.Console.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+          "lib/net5.0/Serilog.Sinks.Console.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Serilog.Sinks.File/5.0.1-dev-00947": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "compile": {
+          "lib/net5.0/Serilog.Sinks.File.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.File.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -280,37 +238,10 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
-      },
-      "ToggleSwitch/1.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/ToggleSwitch.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/ToggleSwitch.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
       }
     }
   },
   "libraries": {
-    "DevExpressMvvm/18.2.3": {
-      "sha512": "udWgM07G1vqJdagd0NpHGX1HDDKbQ4mZQF546NlKWWBQ4QJjeMOUuQ80sdteQbLs4ESMXZ1/QI8bnxLVmG8QsQ==",
-      "type": "package",
-      "path": "devexpressmvvm/18.2.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "devexpressmvvm.18.2.3.nupkg.sha512",
-        "devexpressmvvm.nuspec",
-        "lib/net452/DevExpress.Mvvm.UI.dll",
-        "lib/net452/DevExpress.Mvvm.UI.pdb",
-        "lib/net452/DevExpress.Mvvm.dll",
-        "lib/net452/DevExpress.Mvvm.pdb"
-      ]
-    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -471,19 +402,6 @@
         "version.txt"
       ]
     },
-    "Microsoft.Xaml.Behaviors.Wpf/1.0.1": {
-      "sha512": "ZFmmeTIbRP5a5J47lIUeO6WgFdrU+d2NBPSv1BgsQFVdUK9jgIKs0zOnt6RJDOlSvrvlGWzhv0LgNZfXGz9nEA==",
-      "type": "package",
-      "path": "microsoft.xaml.behaviors.wpf/1.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.Xaml.Behaviors.dll",
-        "lib/net45/Microsoft.Xaml.Behaviors.xml",
-        "microsoft.xaml.behaviors.wpf.1.0.1.nupkg.sha512",
-        "microsoft.xaml.behaviors.wpf.nuspec"
-      ]
-    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -514,135 +432,78 @@
         "packageIcon.png"
       ]
     },
-    "Parallax.WPF/1.0.8": {
-      "sha512": "fXgHE9+lS7Hcv/CPR6E75L6QOXNy8zRqVWlpXKHUtJzuZZ03AmAcKlWN+Y2LDzov9QtoQN0SA2p+OPKOevAwqA==",
+    "Serilog/3.0.2-dev-02042": {
+      "sha512": "GD/biA/Nb9T7H9Gk0FXgb7vNRnaDtXz+hukPgn9sjsUngwpYLtA4A0kElUQbX0y1nP0CChbJ6X77CouOS412Bw==",
       "type": "package",
-      "path": "parallax.wpf/1.0.8",
+      "path": "serilog/3.0.2-dev-02042",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Readme.md",
-        "lib/net45/Parallax.WPF.dll",
-        "parallax.wpf.1.0.8.nupkg.sha512",
-        "parallax.wpf.nuspec"
-      ]
-    },
-    "Syncfusion.Licensing/22.1.34": {
-      "sha512": "jsvGrJgBc2KUMhUbLc1QPTqZkSHEZsUiPOcmu6DDvhYIV9cv1z83gohwHfmtFaRfBVezW7Dhn1qehHSOPIMo/w==",
-      "type": "package",
-      "path": "syncfusion.licensing/22.1.34",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "lib/MonoAndroid90/Syncfusion.Licensing.dll",
-        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
-        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
-        "lib/net40/Syncfusion.Licensing.dll",
-        "lib/net45/Syncfusion.Licensing.dll",
-        "lib/net451/Syncfusion.Licensing.dll",
-        "lib/net46/Syncfusion.Licensing.dll",
-        "lib/net6.0/Syncfusion.Licensing.dll",
-        "lib/net7.0/Syncfusion.Licensing.dll",
-        "lib/netstandard2.0/Syncfusion.Licensing.dll",
-        "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.22.1.34.nupkg.sha512",
-        "syncfusion.licensing.nuspec",
-        "syncfusion_logo.png"
-      ]
-    },
-    "Syncfusion.SfProgressBar.WPF/22.1.34": {
-      "sha512": "hiPaaawxcT36cWinBRopFuZ5afb1/xlbFim3qEoOiXKZdWE4dGNM8fJgY+4FHfNSg3TEQixgvcFmwZpixOQFgA==",
-      "type": "package",
-      "path": "syncfusion.sfprogressbar.wpf/22.1.34",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
         "README.md",
-        "lib/net40/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net40/Design/Syncfusion.SfProgressBar.WPF.DesignTools.dll",
-        "lib/net40/Design/Syncfusion.SfProgressBar.WPF.Expression.Design.dll",
-        "lib/net40/Design/Syncfusion.SfProgressBar.Wpf.VisualStudio.Design.dll",
-        "lib/net40/Design/Syncfusion.SfProgressBar.Wpf.dll.Design.dll",
-        "lib/net40/Syncfusion.SfProgressBar.WPF.dll",
-        "lib/net40/Syncfusion.SfProgressBar.WPF.xml",
-        "lib/net45/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net45/Design/Syncfusion.SfProgressBar.WPF.DesignTools.dll",
-        "lib/net45/Design/Syncfusion.SfProgressBar.WPF.Expression.Design.dll",
-        "lib/net45/Design/Syncfusion.SfProgressBar.Wpf.VisualStudio.Design.dll",
-        "lib/net45/Design/Syncfusion.SfProgressBar.Wpf.dll.Design.dll",
-        "lib/net45/Syncfusion.SfProgressBar.WPF.dll",
-        "lib/net45/Syncfusion.SfProgressBar.WPF.xml",
-        "lib/net451/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net451/Design/Syncfusion.SfProgressBar.WPF.DesignTools.dll",
-        "lib/net451/Design/Syncfusion.SfProgressBar.WPF.Expression.Design.dll",
-        "lib/net451/Design/Syncfusion.SfProgressBar.Wpf.VisualStudio.Design.dll",
-        "lib/net451/Design/Syncfusion.SfProgressBar.Wpf.dll.Design.dll",
-        "lib/net451/Syncfusion.SfProgressBar.WPF.dll",
-        "lib/net451/Syncfusion.SfProgressBar.WPF.xml",
-        "lib/net46/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net46/Design/Syncfusion.SfProgressBar.WPF.DesignTools.dll",
-        "lib/net46/Design/Syncfusion.SfProgressBar.WPF.Expression.Design.dll",
-        "lib/net46/Design/Syncfusion.SfProgressBar.Wpf.VisualStudio.Design.dll",
-        "lib/net46/Design/Syncfusion.SfProgressBar.Wpf.dll.Design.dll",
-        "lib/net46/Syncfusion.SfProgressBar.WPF.dll",
-        "lib/net46/Syncfusion.SfProgressBar.WPF.xml",
-        "lib/net6.0-windows7.0/Design/Syncfusion.SfProgressBar.WPF.DesignTools.dll",
-        "lib/net6.0-windows7.0/Syncfusion.SfProgressBar.WPF.dll",
-        "lib/net6.0-windows7.0/Syncfusion.SfProgressBar.WPF.xml",
-        "syncfusion.sfprogressbar.wpf.22.1.34.nupkg.sha512",
-        "syncfusion.sfprogressbar.wpf.nuspec",
-        "syncfusion_logo.png",
-        "tools/VisualStudioToolsManifest.xml"
+        "icon.png",
+        "lib/net462/Serilog.dll",
+        "lib/net462/Serilog.xml",
+        "lib/net471/Serilog.dll",
+        "lib/net471/Serilog.xml",
+        "lib/net5.0/Serilog.dll",
+        "lib/net5.0/Serilog.xml",
+        "lib/net6.0/Serilog.dll",
+        "lib/net6.0/Serilog.xml",
+        "lib/net7.0/Serilog.dll",
+        "lib/net7.0/Serilog.xml",
+        "lib/netstandard2.0/Serilog.dll",
+        "lib/netstandard2.0/Serilog.xml",
+        "lib/netstandard2.1/Serilog.dll",
+        "lib/netstandard2.1/Serilog.xml",
+        "serilog.3.0.2-dev-02042.nupkg.sha512",
+        "serilog.nuspec"
       ]
     },
-    "Syncfusion.Shared.WPF/22.1.34": {
-      "sha512": "Q9OhnjAk1e7u9sU8lbNgIvrDsGfgKDpxdGlg/S1LS8J4X1SvYHI+E+m1CNQT+Qgb/mJsd7b3Ujdkbb4z9DS8vw==",
+    "Serilog.Sinks.Console/4.1.1-dev-00910": {
+      "sha512": "Lri9i0Vv7MXpLAf5aXq+oBzX/ca5vl+fBAiLtXMJQu9xYyNv++8q+VhzePnOreES4GnwChg6Zrm8ARkVHE/kmA==",
       "type": "package",
-      "path": "syncfusion.shared.wpf/22.1.34",
-      "hasTools": true,
+      "path": "serilog.sinks.console/4.1.1-dev-00910",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.txt",
-        "README.md",
-        "lib/net40/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net40/Design/Syncfusion.Shared.WPF.DesignTools.dll",
-        "lib/net40/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
-        "lib/net40/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
-        "lib/net40/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
-        "lib/net40/Syncfusion.Shared.WPF.dll",
-        "lib/net40/Syncfusion.Shared.WPF.xml",
-        "lib/net45/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net45/Design/Syncfusion.Shared.WPF.DesignTools.dll",
-        "lib/net45/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
-        "lib/net45/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
-        "lib/net45/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
-        "lib/net45/Syncfusion.Shared.WPF.dll",
-        "lib/net45/Syncfusion.Shared.WPF.xml",
-        "lib/net451/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net451/Design/Syncfusion.Shared.WPF.DesignTools.dll",
-        "lib/net451/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
-        "lib/net451/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
-        "lib/net451/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
-        "lib/net451/Syncfusion.Shared.WPF.dll",
-        "lib/net451/Syncfusion.Shared.WPF.xml",
-        "lib/net46/Design/Syncfusion.Design.Wpf.dll",
-        "lib/net46/Design/Syncfusion.Shared.WPF.DesignTools.dll",
-        "lib/net46/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
-        "lib/net46/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
-        "lib/net46/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
-        "lib/net46/Syncfusion.Shared.WPF.dll",
-        "lib/net46/Syncfusion.Shared.WPF.xml",
-        "lib/net6.0-windows7.0/Design/Syncfusion.Shared.WPF.DesignTools.dll",
-        "lib/net6.0-windows7.0/Syncfusion.Shared.WPF.dll",
-        "lib/net6.0-windows7.0/Syncfusion.Shared.WPF.xml",
-        "syncfusion.shared.wpf.22.1.34.nupkg.sha512",
-        "syncfusion.shared.wpf.nuspec",
-        "syncfusion_logo.png",
-        "tools/VisualStudioToolsManifest.xml"
+        "icon.png",
+        "lib/net45/Serilog.Sinks.Console.dll",
+        "lib/net45/Serilog.Sinks.Console.xml",
+        "lib/net5.0/Serilog.Sinks.Console.dll",
+        "lib/net5.0/Serilog.Sinks.Console.xml",
+        "lib/netstandard1.3/Serilog.Sinks.Console.dll",
+        "lib/netstandard1.3/Serilog.Sinks.Console.xml",
+        "lib/netstandard2.0/Serilog.Sinks.Console.dll",
+        "lib/netstandard2.0/Serilog.Sinks.Console.xml",
+        "serilog.sinks.console.4.1.1-dev-00910.nupkg.sha512",
+        "serilog.sinks.console.nuspec"
+      ]
+    },
+    "Serilog.Sinks.File/5.0.1-dev-00947": {
+      "sha512": "rCxuBUTC4v/Mawa2bCD0CkEODiCIJqQvxZfWmZb9O2W1hcZ77WCrNGw2nKnXCuSII4cuWip9QwWbn9wmLzS5sA==",
+      "type": "package",
+      "path": "serilog.sinks.file/5.0.1-dev-00947",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/icon.png",
+        "lib/net45/Serilog.Sinks.File.dll",
+        "lib/net45/Serilog.Sinks.File.pdb",
+        "lib/net45/Serilog.Sinks.File.xml",
+        "lib/net5.0/Serilog.Sinks.File.dll",
+        "lib/net5.0/Serilog.Sinks.File.pdb",
+        "lib/net5.0/Serilog.Sinks.File.xml",
+        "lib/netstandard1.3/Serilog.Sinks.File.dll",
+        "lib/netstandard1.3/Serilog.Sinks.File.pdb",
+        "lib/netstandard1.3/Serilog.Sinks.File.xml",
+        "lib/netstandard2.0/Serilog.Sinks.File.dll",
+        "lib/netstandard2.0/Serilog.Sinks.File.pdb",
+        "lib/netstandard2.0/Serilog.Sinks.File.xml",
+        "lib/netstandard2.1/Serilog.Sinks.File.dll",
+        "lib/netstandard2.1/Serilog.Sinks.File.pdb",
+        "lib/netstandard2.1/Serilog.Sinks.File.xml",
+        "serilog.sinks.file.5.0.1-dev-00947.nupkg.sha512",
+        "serilog.sinks.file.nuspec"
       ]
     },
     "System.Drawing.Common/4.7.0": {
@@ -881,20 +742,6 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "ToggleSwitch/1.2.0": {
-      "sha512": "Rhv4kXlH8Zo8Hb5ZEBECwONAF9HKmYyz1AR5RFyOrU5trbyyu1FCjDQ9E1Njo8ocsfYdjzbsdxgYYEQ3Oh9v9w==",
-      "type": "package",
-      "path": "toggleswitch/1.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/net46/ToggleSwitch.dll",
-        "lib/netcoreapp3.1/ToggleSwitch.dll",
-        "toggleswitch.1.2.0.nupkg.sha512",
-        "toggleswitch.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -902,9 +749,9 @@
       "Microsoft.Toolkit.Mvvm >= 7.1.2",
       "Microsoft.Toolkit.Uwp.Notifications >= 7.1.3",
       "Newtonsoft.Json >= 13.0.3",
-      "Parallax.WPF >= 1.0.8",
-      "Syncfusion.SfProgressBar.WPF >= 22.1.34",
-      "ToggleSwitch >= 1.2.0"
+      "Serilog >= 3.0.2-dev-02042",
+      "Serilog.Sinks.Console >= 4.1.1-dev-00910",
+      "Serilog.Sinks.File >= 5.0.1-dev-00947"
     ]
   },
   "packageFolders": {
@@ -963,17 +810,17 @@
             "target": "Package",
             "version": "[13.0.3, )"
           },
-          "Parallax.WPF": {
+          "Serilog": {
             "target": "Package",
-            "version": "[1.0.8, )"
+            "version": "[3.0.2-dev-02042, )"
           },
-          "Syncfusion.SfProgressBar.WPF": {
+          "Serilog.Sinks.Console": {
             "target": "Package",
-            "version": "[22.1.34, )"
+            "version": "[4.1.1-dev-00910, )"
           },
-          "ToggleSwitch": {
+          "Serilog.Sinks.File": {
             "target": "Package",
-            "version": "[1.2.0, )"
+            "version": "[5.0.1-dev-00947, )"
           }
         },
         "imports": [
@@ -1004,40 +851,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'DevExpressMvvm 18.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0-windows10.0.17763'. This package may not be fully compatible with your project.",
-      "libraryId": "DevExpressMvvm",
-      "targetGraphs": [
-        "net7.0-windows10.0.17763"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Xaml.Behaviors.Wpf 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0-windows10.0.17763'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Xaml.Behaviors.Wpf",
-      "targetGraphs": [
-        "net7.0-windows10.0.17763"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Parallax.WPF 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0-windows10.0.17763'. This package may not be fully compatible with your project.",
-      "libraryId": "Parallax.WPF",
-      "targetGraphs": [
-        "net7.0-windows10.0.17763"
-      ]
-    }
-  ]
+  }
 }

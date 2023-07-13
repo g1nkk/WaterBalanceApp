@@ -7,32 +7,61 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls.Primitives;
+using System.Windows.Threading;
 
 namespace WaterBalance
 {
-    internal class CalendarPanel
+    internal class CalendarPanel : IDataSubscriber
     {
+        readonly PanelManager manager;
         readonly MainWindow mainWindow;
+        private readonly DispatcherTimer NextDayTimer;
 
-        public CalendarPanel(MainWindow mainWindow)
+        public CalendarPanel(MainWindow mainWindow, PanelManager manager)
         {          
+            this.manager = manager;
             this.mainWindow = mainWindow;
+            NextDayTimer = new DispatcherTimer();
+            NextDayTimer.Tick += Timer_Tick;
+            NextDayTimer.Start();
+
+            SetupCalendar();
         }
 
         public void SetupCalendar()
         {
             SetupInterface();
+            //next steps
+        }
 
+        public void Update()
+        {
+            CheckTodayDate();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (manager.calendarData?.IsNewDay() ?? false)
+            {
+                CheckTodayDate();
+            }
+        }
+
+        void CheckTodayDate()
+        {
+            UpdateCalendarButtons();
+            manager.calendarData.UpdateDate();
+            manager.SetupUserDependentComponents();
         }
 
         void SetupInterface()
         {
-            mainWindow.calendarMonth.Content = DateTime.Now.Month.ToString();
-            CreateDaysButtons(DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            mainWindow.calendarMonth.Content = DateTime.Now.ToString("MMMM");
         }
 
-        private void CreateDaysButtons(int dayCount)
+        private void UpdateCalendarButtons()
         {
+            int dayCount = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
             const int buttonsPerRow = 7; 
             const int buttonSize = 40; 
             const int spacing = 5;
@@ -40,6 +69,8 @@ namespace WaterBalance
             int rows = dayCount / buttonsPerRow + 1; 
 
             Style buttonStyle = Application.Current.Resources["calendarDayButton"] as Style;
+
+            mainWindow.calendarDays.Children.Clear();
 
             for (int row = 0; row < rows; row++)
             {
@@ -63,12 +94,12 @@ namespace WaterBalance
                     button.FontWeight = FontWeights.Bold;
                     button.Click += Button_Click;
 
-                    if (mainWindow.calendarData.Month.IsDayEmpty(index))
+                    if (manager.calendarData.IsDayEmpty(index))
                     {
                         button.IsEnabled = false;
                         button.Opacity = .4;
                     }
-                    else if (mainWindow.calendarData.Month.IsGoalCompleted(index))
+                    else if (manager.calendarData.IsTodayGoalCompleted())
                     {
                         button.Background = Brushes.SpringGreen;
                     }
@@ -82,6 +113,10 @@ namespace WaterBalance
         {
             // Обработка нажатия кнопки
         }
+
+
+
+
 
     }
 }

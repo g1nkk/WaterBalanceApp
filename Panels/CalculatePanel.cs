@@ -17,6 +17,7 @@ namespace WaterBalance
 {
     public class CalculatePanel
     {
+        readonly PanelManager manager;
         readonly MainWindow mainWindow;
 
         private Grid[] calculatePanels = new Grid[5];
@@ -34,8 +35,9 @@ namespace WaterBalance
         public ICommand AgeDownButton { get; }
 
 
-        public CalculatePanel(MainWindow mainWindow)
+        public CalculatePanel(MainWindow mainWindow, PanelManager manager)
         {
+            this.manager = manager;
             this.mainWindow = mainWindow;
 
             calculatePanels[0] = mainWindow.CalculatePanel1;
@@ -102,38 +104,58 @@ namespace WaterBalance
 
         void ContinueButton()
         {
-            if (currentCalculatePanelSelected < calculatePanels.Length - 1)
+            if (currentCalculatePanelSelected >= calculatePanels.Length)
+            {
+                return;
+            }
+
+            if (currentCalculatePanelSelected == calculatePanels.Length - 1)
             {
                 if (AllFieldsFilled(currentCalculatePanelSelected))
                 {
-                    if (mainWindow.InvalidLabel.Opacity > 0)
-                        mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.hideAnimation);
-
-                    currentCalculatePanelSelected++;
-                    mainWindow.HidePanel(calculatePanels[currentCalculatePanelSelected - 1]);
-                    mainWindow.ShowPanel(calculatePanels[currentCalculatePanelSelected]);
+                    HideInvalidLabelIfVisible();
+                    int goal = CalculateWaterGoal(); // goal in liters
+                    manager.CreateNewData(goal);
+                    manager.SetupUserDependentComponents();
+                    PanelManager.HidePanel(calculatePanels[currentCalculatePanelSelected]);
+                    PanelManager.HidePanel(manager.panels[5]); // calculate panel
+                    PanelManager.ShowPanel(manager.panels[0]); // main menu
+                    PanelManager.ShowPanel(manager.panels[6]); // up and down buttons
+                    ResetPanelsVisibility();
+                    manager.currentPanelSelected = 0;
                 }
                 else
                 {
-                    mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, MainWindow.showAnimation);
+                    ShowInvalidLabel();
                 }
             }
             else
             {
-                int goal = CalculateWaterGoal(); // goal in liters
-
-                mainWindow.CreateNewData(goal);
-
-                mainWindow.SetupUserDependentComponents();
-
-                mainWindow.HidePanel(mainWindow.panels[5]); // calculate panel
-                mainWindow.ShowPanel(mainWindow.panels[0]); // main menu
-                mainWindow.ShowPanel(mainWindow.panels[6]); // up and down buttons
-
-                mainWindow.currentPanelSelected = 0;
-
-                ResetPanelsVisibility();
+                if (AllFieldsFilled(currentCalculatePanelSelected))
+                {
+                    HideInvalidLabelIfVisible();
+                    currentCalculatePanelSelected++;
+                    PanelManager.HidePanel(calculatePanels[currentCalculatePanelSelected - 1]);
+                    PanelManager.ShowPanel(calculatePanels[currentCalculatePanelSelected]);
+                }
+                else
+                {
+                    ShowInvalidLabel();
+                }
             }
+        }
+
+        void HideInvalidLabelIfVisible()
+        {
+            if (mainWindow.InvalidLabel.Opacity > 0)
+            {
+                mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, PanelManager.hideAnimation);
+            }
+        }
+
+        void ShowInvalidLabel()
+        {
+            mainWindow.InvalidLabel.BeginAnimation(Window.OpacityProperty, PanelManager.showAnimation);
         }
 
         int CalculateWaterGoal()
