@@ -21,7 +21,7 @@ namespace WaterBalance
 
         MainWindow mainWindow;
 
-        public Grid[] panels = new Grid[7];
+        public Grid[] panels = new Grid[8];
         public int currentPanelSelected = 0;
 
         public Grid startupPanel;
@@ -31,7 +31,7 @@ namespace WaterBalance
         public AchievementManager achievementManager;
         public ToastNotifications notifications;
 
-        DataObserver dataObserver = new DataObserver();
+        public DataObserver dataObserver = new DataObserver();
 
         public Dictionary<string, object> ClassInstances { get; } = new Dictionary<string, object>();
 
@@ -70,6 +70,7 @@ namespace WaterBalance
         {
             dataObserver.Subscribe((AchievementsPanel)ClassInstances["AchievementPanel"]);
             dataObserver.Subscribe((CalendarPanel)ClassInstances["CalendarPanel"]);
+            dataObserver.Subscribe((UserProfilePanel)ClassInstances["UserProfilePanel"]);
         }
 
         void SetupLogger()
@@ -87,6 +88,7 @@ namespace WaterBalance
             AddClassInstance<SettingsPanel>("SettingsPanel", mainWindow, this);
             AddClassInstance<CalendarPanel>("CalendarPanel", mainWindow, this);
             AddClassInstance<AchievementsPanel>("AchievementPanel", mainWindow, this);
+            AddClassInstance<UserProfilePanel>("UserProfilePanel", mainWindow, this);
         }
 
 
@@ -128,6 +130,10 @@ namespace WaterBalance
         public void ShowStartupPanel()
         {
             ShowPanel(startupPanel);
+            if(startupPanel == panels[0]) // main menu
+            {
+                ShowPanel(panels[6]); // control buttons
+            }
         }
 
         void LoadAndCheckData()
@@ -147,7 +153,7 @@ namespace WaterBalance
 
         public void SetupUserDependentComponents()
         {
-            if (calendarData.IsDayEmpty(DateTime.Now.Day))
+            if (calendarData.IsDayEmpty(DateTime.Now.Day-1))
             {
                 mainWindow.waterConsumedMl.Content = "0 ml";
                 mainWindow.waterConsumedPercent.Content = "0%";
@@ -186,6 +192,7 @@ namespace WaterBalance
             panels[4] = mainWindow.optionsGrid;
             panels[5] = mainWindow.calculateGrid;
             panels[6] = mainWindow.ContolButtons;
+            panels[7] = mainWindow.userProfileGrid;
 
             notifications = new ToastNotifications(this);
 

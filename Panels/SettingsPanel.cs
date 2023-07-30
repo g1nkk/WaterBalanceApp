@@ -80,7 +80,7 @@ namespace WaterBalance
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error occured: " + ex.Message);
+                MessageBox.Show("Error occurred: " + ex.Message);
             }
         }
 
@@ -96,7 +96,7 @@ namespace WaterBalance
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error occured: " + ex.Message);
+                MessageBox.Show("Error occurred: " + ex.Message);
             }
         }
     }

@@ -132,12 +132,15 @@ namespace WaterBalance
             if (todayAmount >= manager.userProfile.DailyGoal)
             {
                 PlayGoalCompletedAnimation();
+                manager.calendarData.SetTodayGoalCompleted();
 
-                if (manager.achievementManager.IsAchievementCompleted(new FirstGoalAchievement()))
+                if (!manager.achievementManager.IsAchievementCompleted(new FirstGoalAchievement()))
                 {
                     manager.achievementManager.CompleteAchievement(new FirstGoalAchievement());
                 }
             }
+
+            manager.dataObserver.NotifySubscribers();
 
             SaveAndLoadManager.SaveCalendar(manager.calendarData);
             SaveAndLoadManager.SaveProfile(manager.userProfile);

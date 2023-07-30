@@ -1,1 +1,1 @@
-{"Month":{"days":[null,null,null,null,null,null,null,null,null,null,null,null,null,{"GoalCompleted":false,"WaterDrank":0},null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"CurrentMonth":"2023-07-13T21:00:24.2649377+03:00"}}
+{"Month":{"days":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"GoalCompleted":false,"WaterDrank":100},{"GoalCompleted":false,"WaterDrank":50},null],"CurrentMonth":"2023-07-30T16:18:56.448159+03:00"}}

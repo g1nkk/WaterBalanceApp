@@ -1,28 +1,117 @@
-2023-07-13 20:50:29.274 +03:00 [INF] App opened
-2023-07-13 20:50:34.714 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:50:34.715 +03:00 [INF] New profile created with name: dfgd
-2023-07-13 20:50:34.719 +03:00 [INF] Profile data successfully saved
-2023-07-13 20:50:34.734 +03:00 [INF] Achievements data successfully saved
-2023-07-13 20:50:34.734 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:51:09.836 +03:00 [INF] App opened
-2023-07-13 20:53:26.145 +03:00 [INF] App opened
-2023-07-13 20:56:30.675 +03:00 [INF] App opened
-2023-07-13 20:56:42.353 +03:00 [INF] Water added: 500, today consumption: 500
-2023-07-13 20:56:42.354 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:56:42.356 +03:00 [INF] Profile data successfully saved
-2023-07-13 20:56:43.165 +03:00 [INF] Water added: 500, today consumption: 1000
-2023-07-13 20:56:43.165 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:56:43.165 +03:00 [INF] Profile data successfully saved
-2023-07-13 20:56:43.835 +03:00 [INF] Water added: 500, today consumption: 1500
-2023-07-13 20:56:43.835 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:56:43.836 +03:00 [INF] Profile data successfully saved
-2023-07-13 20:56:44.565 +03:00 [INF] Water added: 500, today consumption: 2000
-2023-07-13 20:56:44.566 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:56:44.566 +03:00 [INF] Profile data successfully saved
-2023-07-13 20:56:45.729 +03:00 [INF] Water added: 500, today consumption: 2500
-2023-07-13 20:56:45.730 +03:00 [INF] Calendar data successfully saved
-2023-07-13 20:56:45.730 +03:00 [INF] Profile data successfully saved
-2023-07-13 20:57:27.549 +03:00 [INF] App opened
-2023-07-13 20:57:53.595 +03:00 [INF] App opened
-2023-07-13 20:59:11.337 +03:00 [INF] App opened
-2023-07-13 21:00:24.913 +03:00 [INF] App opened
+2023-07-30 16:09:56.029 +03:00 [INF] App opened
+2023-07-30 16:10:03.773 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:03.792 +03:00 [INF] Achievements data successfully saved
+2023-07-30 16:10:03.793 +03:00 [INF] New profile created with name: смисми
+2023-07-30 16:10:03.796 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:03.797 +03:00 [INF] Achievements data successfully saved
+2023-07-30 16:10:03.797 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:03.805 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:15.504 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:15.505 +03:00 [INF] Water added: 500, today consumption: 500
+2023-07-30 16:10:15.507 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:15.511 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:15.512 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:20.901 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:20.901 +03:00 [INF] Water added: 500, today consumption: 1000
+2023-07-30 16:10:20.903 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:20.904 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:20.904 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:21.702 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:21.702 +03:00 [INF] Water added: 150, today consumption: 1150
+2023-07-30 16:10:21.704 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:21.704 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:21.704 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:22.283 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:22.283 +03:00 [INF] Water added: 50, today consumption: 1200
+2023-07-30 16:10:22.284 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:22.285 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:22.285 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:22.885 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:22.885 +03:00 [INF] Water added: 50, today consumption: 1250
+2023-07-30 16:10:22.890 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:22.891 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:22.891 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:35.229 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:35.229 +03:00 [INF] Water added: 500, today consumption: 1750
+2023-07-30 16:10:35.230 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:35.231 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:35.231 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:36.046 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:36.046 +03:00 [INF] Water added: 500, today consumption: 2250
+2023-07-30 16:10:36.051 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:36.055 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:36.055 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:10:36.756 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:36.756 +03:00 [INF] Water added: 500, today consumption: 2750
+2023-07-30 16:10:36.763 +03:00 [INF] Achievement completed: First Goal
+2023-07-30 16:10:36.763 +03:00 [INF] Achievements data successfully saved
+2023-07-30 16:10:36.765 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:36.765 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:10:36.765 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:17:51.085 +03:00 [INF] App opened
+2023-07-30 16:17:54.346 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:54.346 +03:00 [INF] Water added: 250, today consumption: 250
+2023-07-30 16:17:54.350 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:54.350 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:54.351 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:17:55.149 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:55.149 +03:00 [INF] Water added: 500, today consumption: 750
+2023-07-30 16:17:55.153 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:55.154 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:55.154 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:17:56.242 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:56.242 +03:00 [INF] Water added: 500, today consumption: 1250
+2023-07-30 16:17:56.245 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:56.245 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:56.245 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:17:57.102 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:57.102 +03:00 [INF] Water added: 500, today consumption: 1750
+2023-07-30 16:17:57.104 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:57.105 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:57.105 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:17:57.757 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:57.757 +03:00 [INF] Water added: 500, today consumption: 2250
+2023-07-30 16:17:57.759 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:57.759 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:57.759 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:17:58.425 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:58.425 +03:00 [INF] Water added: 500, today consumption: 2750
+2023-07-30 16:17:58.432 +03:00 [INF] Achievement completed: First Goal
+2023-07-30 16:17:58.432 +03:00 [INF] Achievements data successfully saved
+2023-07-30 16:17:58.434 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:58.435 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:17:58.435 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:15.389 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:15.800 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:16.803 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:17.566 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:24.374 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:18:24.374 +03:00 [INF] Achievements data successfully saved
+2023-07-30 16:18:24.374 +03:00 [INF] New profile created with name: вапва
+2023-07-30 16:18:24.374 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:24.375 +03:00 [INF] Achievements data successfully saved
+2023-07-30 16:18:24.380 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:18:24.381 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:18:31.825 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:18:31.825 +03:00 [INF] Water added: 500, today consumption: 500
+2023-07-30 16:18:31.827 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:18:31.827 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:18:31.827 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:18:56.948 +03:00 [INF] App opened
+2023-07-29 16:18:54.676 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:18:58.823 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:18:58.823 +03:00 [INF] Water added: 50, today consumption: 50
+2023-07-29 16:18:58.828 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:18:58.828 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:18:58.830 +03:00 [INF] Profile data successfully saved
+2023-07-29 16:19:03.302 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:19:03.302 +03:00 [INF] Water added: 50, today consumption: 100
+2023-07-29 16:19:03.305 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:19:03.305 +03:00 [INF] Calendar data successfully saved
+2023-07-29 16:19:03.306 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:19:07.058 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:19:07.058 +03:00 [INF] Water added: 50, today consumption: 50
+2023-07-30 16:19:07.061 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:19:07.061 +03:00 [INF] Calendar data successfully saved
+2023-07-30 16:19:07.061 +03:00 [INF] Profile data successfully saved
+2023-07-30 16:19:19.343 +03:00 [INF] App closed

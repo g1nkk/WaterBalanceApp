@@ -51,7 +51,21 @@ namespace WaterBalance
         {
             UpdateCalendarButtons();
             manager.calendarData.UpdateDate();
+            UpdateStreak();
             manager.SetupUserDependentComponents();
+        }
+
+        void UpdateStreak()
+        {
+            if(manager.calendarData.IsTodayGoalCompleted())
+            {
+                manager.userProfile.CurrentStreak++;
+
+                if(manager.userProfile.CurrentStreak > manager.userProfile.MaxStreak)
+                {
+                    manager.userProfile.MaxStreak = manager.userProfile.CurrentStreak;
+                }
+            }
         }
 
         void SetupInterface()
@@ -99,7 +113,7 @@ namespace WaterBalance
                         button.IsEnabled = false;
                         button.Opacity = .4;
                     }
-                    else if (manager.calendarData.IsTodayGoalCompleted())
+                    else if (manager.calendarData.IsDayGoalCompleted(index))
                     {
                         button.Background = Brushes.SpringGreen;
                     }
@@ -111,7 +125,14 @@ namespace WaterBalance
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Обработка нажатия кнопки
+            var button = (Button)sender;
+            int dayNum = Convert.ToInt32(button.Content)-1;
+
+
+            PanelManager.ShowPanel(mainWindow.DaySelectedPanel);
+            mainWindow.DayNum.Content = dayNum+1;
+            mainWindow.DayGoal.Content = manager.calendarData.IsDayGoalCompleted(dayNum);
+            mainWindow.DayWater.Content = manager.calendarData.GetDayWaterAmount(dayNum);
         }
 
 

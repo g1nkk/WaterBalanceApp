@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Serilog;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 
@@ -13,31 +14,50 @@ namespace WaterBalance
 
     public class AchievementManager
     {
-        public readonly AchievementsList AchievementsList = new();
-        public List<Achievement> CompletedAchievements;
-
-
-        public AchievementManager(List<Achievement> completedAchievements) 
-        {
-            CompletedAchievements = completedAchievements;
-        }
+        public List<Achievement> AchievementList = new();
 
         [JsonConstructor]
+        public AchievementManager(List<Achievement> Achievements) 
+        {
+            AchievementList = Achievements;
+        }
+
         public AchievementManager()
         {
-            CompletedAchievements = new List<Achievement>();
+            AchievementList = new List<Achievement>
+            {
+                new FirstGoalAchievement(),
+                new OneWeekStreakAchievent(),
+                new OneMonthStreakAchievent(),
+                new HundredLitersAchievement(),
+                new ThousandLitersAchievement()
+            };
+            SaveAndLoadManager.SaveAchivements(this);
         }
 
         public void CompleteAchievement(Achievement achievement)
         {
             ToastNotificationsManager.ShowAchievementCompletedNotification(achievement);
-            CompletedAchievements.Add(achievement);
+
+            int index = AchievementList.FindIndex(a => a.Equals(achievement));
+            if (index != -1)
+            {
+                AchievementList[index].IsCompleted = true;
+            }
+
+            Log.Information($"Achievement completed: {achievement.Name}");
+
             SaveAndLoadManager.SaveAchivements(this);
         }
 
         public bool IsAchievementCompleted(Achievement achievement)
         {
-            return CompletedAchievements.Contains(achievement);
+            int index = AchievementList.FindIndex(a => a.Equals(achievement));
+            if (index != -1)
+            {
+                return AchievementList[index].IsCompleted;
+            }
+            else return false;
         }
     }
 }

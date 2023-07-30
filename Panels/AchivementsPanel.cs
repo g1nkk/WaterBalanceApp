@@ -26,15 +26,13 @@ namespace WaterBalance
 
             var converter = new BrushConverter();
 
-            
-
             string lockedImage = "icons/locked.png"; 
             Uri lockedImageUri = new Uri("C:\\Users\\Kirill\\source\\repos\\WaterBalance\\icons\\locked.png");
 
             string unlockedImage = "icons/demoCheckmark.png";
             Uri unlockedImageUri = new Uri(unlockedImage, UriKind.Relative);
 
-            foreach (var achievement in manager.achievementManager.AchievementsList.Achievements)
+            foreach (var achievement in manager.achievementManager.AchievementList)
             {
                 var grid = new Grid();
 
@@ -58,7 +56,7 @@ namespace WaterBalance
                     Height = 30
                 };
 
-                if (achievement.IsCompleted)
+                if (manager.achievementManager.IsAchievementCompleted(achievement))
                 {
                     panel.Background = (Brush)converter.ConvertFromString("#d9ffd6");
                     image.Source = new BitmapImage(lockedImageUri);

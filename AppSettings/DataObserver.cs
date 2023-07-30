@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WaterBalance
 {
-    internal class DataObserver
+    public class DataObserver
     {
 
         List<IDataSubscriber> subscribers;

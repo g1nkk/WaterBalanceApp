@@ -25,6 +25,7 @@
     <None Remove="icons\demoCheckmark.png" />
     <None Remove="icons\drop.png" />
     <None Remove="plus.png" />
+    <None Remove="profile.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +44,7 @@
     <Resource Include="icons\options.png" />
     <Resource Include="icons\waterIcon.png" />
     <Resource Include="plus.png" />
+    <Resource Include="profile.png" />
   </ItemGroup>
 
   <ItemGroup>
